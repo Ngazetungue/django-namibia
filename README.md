@@ -8,7 +8,7 @@ This platform is built to support and grow the Django and broader Python communi
 
 ## 🌐 Live Site
 
-_The site will be available at: [https://django.na](https://django.na)_ (Coming Soon)
+_The site will be available at:  (Coming Soon)
 
 ---
 
