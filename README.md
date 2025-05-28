@@ -1,124 +1,45 @@
-````markdown
-# 🇳🇦 Django Namibia Community Website
+<div align="center">
 
-Welcome to the official repository of the **Django Namibia Community** website!
+# ✨ Django Namibia ✨  
+**The Official Website of the Django Namibia Community**
 
-This website serves as a hub for Django developers and Python enthusiasts in Namibia. It provides updates, resources, events, and opportunities to grow with the local and global open-source community.
+</div>
 
-> **Django Namibia** is proudly part of the **Python Software Association of Namibia**, a registered non-profit organization supporting the growth of Python and open-source technologies across the country.
+Welcome to the official repository of the **Django Namibia Community** website, a digital hub for Django developers and Python enthusiasts across Namibia. This platform provides timely updates, learning resources, event information, and opportunities to engage with both local and global open-source communities.
 
----
+**Django Namibia** operates under the umbrella of the **Python Software Association of Namibia**, a registered non-profit organization dedicated to promoting Python and open-source technology across the country.
 
-## 🌐 Live Site
+## 🌐 Live Site  
+🔗 _Coming Soon_
 
-🔗 Coming soon
+## 🧰 Technology Stack
 
----
+A modern, scalable, and responsive tech stack powers this project:
 
-## 🧰 Tech Stack
+<div align="center">
 
-This project uses a modern, scalable, and responsive development stack:
+### 🚀 Core Technologies
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
+![Wagtail](https://img.shields.io/badge/Wagtail-43B1B0?style=for-the-badge&logo=wagtail&logoColor=white)
 
-- ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) **Python** – The core programming language powering the backend.
-- ![Django](https://img.shields.io/badge/Django-092E20?style=flat-square&logo=django&logoColor=white) **Django** – A high-level Python web framework for rapid development and clean design.
-- ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white) **Tailwind CSS** – A utility-first CSS framework for responsive and modern UI.
-- ![Alpine.js](https://img.shields.io/badge/Alpine.js-77C1D2?style=flat-square&logo=alpine.js&logoColor=black) **Alpine.js** – A lightweight JavaScript framework for reactive UI behavior.
-- ![HTMX](https://img.shields.io/badge/HTMX-4169E1?style=flat-square&logo=html5&logoColor=white) **HTMX** – Enables seamless, AJAX-like interactivity with minimal JavaScript.
+### 🎨 Frontend Technologies
+![HTMX](https://img.shields.io/badge/HTMX-000000?style=for-the-badge&logo=htmx&logoColor=white)
+![Alpine.js](https://img.shields.io/badge/Alpine.js-8BC0D0?style=for-the-badge&logo=alpinedotjs&logoColor=black)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
----
-
-## ⚙️ Getting Started (Local Development)
-
-To run the project locally:
-
-1. **Clone the Repository**
-
-   ```bash
-   git clone https://github.com/your-username/django-namibia.git
-   cd django-namibia
-````
-
-2. **Set Up a Virtual Environment**
-
-   ```bash
-   python -m venv env
-   source env/bin/activate  # Windows: env\Scripts\activate
-   ```
-
-3. **Install Dependencies**
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Apply Database Migrations**
-
-   ```bash
-   python manage.py migrate
-   ```
-
-5. **Run the Development Server**
-
-   ```bash
-   python manage.py runserver
-   ```
-
-Then visit `http://127.0.0.1:8000` in your browser to view the site.
-
----
-
-## 💡 Features
-
-* Responsive design with Tailwind CSS
-* Minimal and reactive UI using Alpine.js and HTMX
-* Django Admin integration for managing content
-* Expandable architecture for future community tools, events, and API features
-
----
-
-## 🤝 Contributing
-
-We welcome your support to grow the Django community in Namibia!
-
-### You can contribute by:
-
-* Improving the UI/UX
-* Fixing bugs or refactoring code
-* Adding community-focused features
-* Writing documentation
-* Supporting events or writing blog content
-
-To contribute:
-
-* Fork this repository
-* Make your changes
-* Open a pull request
-
----
+</div>
 
 ## 📜 License
 
-This project is open-source and released under the [MIT License](LICENSE).
+This project is open-source and distributed under the terms of the [MIT License](LICENSE).
 
----
+## 🐍 About Python Software Association of Namibia (PYNAM)
 
-## 🐍 About Python Software Association Namibia
+The **Python Software Association of Namibia (PYNAM)** is a non-profit organization committed to promoting Python programming and open-source technologies throughout Namibia. PYNAM organizes and supports initiatives such as **PyCon Namibia**, developer training, workshops, and collaborative projects that empower the local tech community.
 
-The **Python Software Association Namibia (PSAN)** supports Python education, software development, and community-building efforts across Namibia. It has hosted major events like **PyCon Namibia** and empowers developers through training, conferences, and collaboration.
+Visit the official website: [pythonnamibia.org](https://pythonnamibia.org)
 
-Learn more at [pythonnamibia.org](https://pythonnamibia.org)
-
----
-
-## 📬 Contact & Socials
-
-* Twitter: [@DjangoNamibia](https://twitter.com/djangonamibia)
-* Facebook: [facebook.com/djangonamibia](https://facebook.com/djangonamibia)
-* GitHub: [github.com/djangonamibia](https://github.com/djangonamibia)
-* Email: [info@django.na](mailto:info@django.na)
-
----
-
-> *Built by the community, for the community.*
-
-```
+<div align="center"><em>Built by the community, for the community.</em></div>
