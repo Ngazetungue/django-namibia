@@ -282,30 +282,75 @@
         </div>
     </section>
 
-    <!-- Newsletter Section -->
-    <section class="py-16 bg-gradient-to-br from-django-light-green to-django-green text-white">
-        <div class="container mx-auto px-4 text-center">
-            <div class="max-w-3xl mx-auto" data-aos="fade-up">
-                <h2 class="text-3xl font-bold mb-6">Get New Resources Directly</h2>
-                <p class="text-xl mb-8">
-                    Join our newsletter to receive curated Django resources and Namibia-specific updates monthly.
-                </p>
+<!-- Community Engagement Section -->
+<section class="py-16 bg-gradient-to-br from-django-light-green to-django-green text-white">
+    <div class="container mx-auto px-4 text-center">
+        <div class="max-w-4xl mx-auto" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-6">Join Our Developer Community</h2>
+            <p class="text-xl mb-8">
+                Connect with Django developers across Namibia through these platforms:
+            </p>
 
-                <form class="max-w-md mx-auto flex">
-                    <input type="email" placeholder="Your email address"
-                        class="flex-grow px-4 py-3 rounded-l-lg focus:outline-none text-gray-900">
-                    <button type="submit"
-                        class="bg-namibia-blue hover:bg-blue-900 px-6 py-3 rounded-r-lg font-medium transition">
-                        Subscribe
-                    </button>
-                </form>
+            <!-- Primary Platforms (WhatsApp, Bluesky, Mastodon) -->
+            <div class="flex flex-wrap justify-center gap-4 mb-10">
 
-                <p class="text-sm mt-4 opacity-80">
-                    We respect your privacy. Unsubscribe at any time.
-                </p>
+                <!-- Mastodon -->
+                <a href="https://mastodon.social/@yourhandle" target="_blank" 
+                   class="bg-purple-100 text-django-green hover:bg-white w-14 h-14 rounded-full flex items-center justify-center transition transform hover:scale-110 shadow-md">
+                    <i class="fab fa-mastodon text-3xl"></i>
+                    <span class="sr-only">Mastodon</span>
+                </a>
+                <!-- GitHub -->
+                <a href="https://github.com/Ngazetungue/django-namibia" target="_blank" 
+                   class="bg-gray-100 text-django-green hover:bg-white w-12 h-12 rounded-full flex items-center justify-center transition transform hover:scale-105">
+                    <i class="fab fa-github text-2xl"></i>
+                    <span class="sr-only">GitHub</span>
+                </a>
+
+                <!-- Twitter/X -->
+                <a href="https://twitter.com/djangonamibia" target="_blank" 
+                    class="bg-blue-100 text-django-green hover:bg-white w-12 h-12 rounded-full flex items-center justify-center transition transform hover:scale-105">
+                        <i class="fab fa-twitter text-2xl"></i>
+                        <span class="sr-only">Twitter/X</span>
+                </a>
+                
+                <!-- Discord -->
+                <a href="https://discord.gg/QwpARXXD" target="_blank" 
+                   class="bg-indigo-100 text-django-green hover:bg-white w-14 h-14 rounded-full flex items-center justify-center transition transform hover:scale-110 shadow-md">
+                    <i class="fab fa-discord text-3xl"></i>
+                    <span class="sr-only">Discord</span>
+                </a>
             </div>
+
+            <!-- Platform Descriptions -->
+            <div class="mt-12 grid md:grid-cols-3 gap-6 text-left">
+                <div class="bg-white/10 p-5 rounded-xl backdrop-blur-sm">
+                    <h3 class="font-semibold mb-3 flex items-center">
+                        <i class="fab fa-discord mr-2"></i> Discord
+                    </h3>
+                    <p class="text-sm opacity-90">Real-time discussions about contributions with local developers</p>
+                </div>
+
+                <div class="bg-white/10 p-5 rounded-xl backdrop-blur-sm">
+                    <h3 class="font-semibold mb-3 flex items-center">
+                        <i class="fab fa-mastodon mr-2"></i> Mastodon
+                    </h3>
+                    <p class="text-sm opacity-90">Announcements and open conversations</p>
+                </div>
+                <div class="bg-white/10 p-5 rounded-xl backdrop-blur-sm">
+                    <h3 class="font-semibold mb-3 flex items-center">
+                        <i class="fab fa-twitter mr-2"></i> Twitter/X
+                    </h3>
+                    <p class="text-sm opacity-90">Announcements and open conversations</p>
+                </div>
+            </div>
+
+            <p class="text-sm mt-12 opacity-80 max-w-2xl mx-auto">
+                <i class="fas fa-info-circle mr-1"></i> Join where you're most active! All platforms are regularly moderated.
+            </p>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Django Books Section -->
     <section id="django-books" class="py-20 bg-gray-50">
