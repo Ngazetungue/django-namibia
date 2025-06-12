@@ -1,202 +1,9 @@
+{% extends "website/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django Resources - Django Namibia Community</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+{% block title %}Django Resources - Django Namibia Community{% endblock %}
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'django-green': '#092E20',
-                        'django-light-green': '#0C4B33',
-                        'django-teal': '#199D80',
-                        'namibia-blue': '#003580',
-                        'namibia-red': '#D21034',
-                    },
-                    animation: {
-                        'spin-slow': 'spin 8s linear infinite',
-                        'bounce-slow': 'bounce 3s infinite',
-                        'pulse-slow': 'pulse 5s infinite',
-                    }
-                }
-            }
-        }
-    </script>
-</head>
-
-<body x-data="{ 
-    mobileMenuOpen: false,
-    activeTab: 'learning',
-    resources: {
-        learning: [
-            {
-                title: 'Django Official Documentation',
-                description: 'The complete documentation for all Django versions',
-                link: 'https://docs.djangoproject.com/',
-                type: 'documentation',
-                level: 'all'
-            },
-            {
-                title: 'Django for Beginners',
-                description: 'Step-by-step guide to building Django applications',
-                link: 'https://djangoforbeginners.com/',
-                type: 'book',
-                level: 'beginner'
-            },
-            {
-                title: 'Django Girls Tutorial',
-                description: 'Beginner-friendly tutorial that builds a blog application',
-                link: 'https://tutorial.djangogirls.org/',
-                type: 'tutorial',
-                level: 'beginner'
-            },
-            {
-                title: 'Two Scoops of Django',
-                description: 'Best practices for Django development',
-                link: 'https://www.feldroy.com/books/two-scoops-of-django-3-x',
-                type: 'book',
-                level: 'intermediate'
-            },
-            {
-                title: 'Django REST Framework',
-                description: 'Powerful toolkit for building Web APIs',
-                link: 'https://www.django-rest-framework.org/',
-                type: 'documentation',
-                level: 'intermediate'
-            },
-            {
-                title: 'Advanced Django Patterns',
-                description: 'Advanced techniques for experienced Django developers',
-                link: 'https://advanced-django.com/',
-                type: 'course',
-                level: 'advanced'
-            }
-        ],
-        namibia: [
-            {
-                title: 'Namibia e-Government API',
-                description: 'Open API for integrating with Namibia government services',
-                link: 'https://github.com/namibia-egov/api',
-                type: 'project',
-                language: 'Python'
-            },
-            {
-                title: 'Windhoek Bus Schedule',
-                description: 'Open-source Django app for Windhoek public transport',
-                link: 'https://github.com/namibia-dev/windhoek-bus',
-                type: 'project',
-                language: 'Python'
-            },
-            {
-                title: 'Namibia COVID-19 Tracker',
-                description: 'Django-based dashboard for Namibia COVID statistics',
-                link: 'https://github.com/namibia-health/covid-tracker',
-                type: 'project',
-                language: 'Python'
-            },
-            {
-                title: 'Django Namibia Starter Kit',
-                description: 'Template project with common Namibia-specific configurations',
-                link: 'https://github.com/django-namibia/starter-kit',
-                type: 'boilerplate',
-                language: 'Python'
-            }
-        ],
-        tools: [
-            {
-                title: 'Django Extensions',
-                description: 'Collection of custom extensions for Django',
-                link: 'https://django-extensions.readthedocs.io/',
-                category: 'development'
-            },
-            {
-                title: 'Django Debug Toolbar',
-                description: 'Configurable panels to debug Django applications',
-                link: 'https://django-debug-toolbar.readthedocs.io/',
-                category: 'debugging'
-            },
-            {
-                title: 'Django Crispy Forms',
-                description: 'Beautifully styled Django forms with minimal effort',
-                link: 'https://django-crispy-forms.readthedocs.io/',
-                category: 'forms'
-            },
-            {
-                title: 'Django Allauth',
-                description: 'Integrated set of authentication solutions',
-                link: 'https://django-allauth.readthedocs.io/',
-                category: 'authentication'
-            },
-            {
-                title: 'Django Storages',
-                description: 'Custom storage backends for Django',
-                link: 'https://django-storages.readthedocs.io/',
-                category: 'storage'
-            },
-            {
-                title: 'Django Filter',
-                description: 'Dynamic QuerySet filtering from URL parameters',
-                link: 'https://django-filter.readthedocs.io/',
-                category: 'filtering'
-            }
-        ]
-    }
-}" class="font-sans bg-gray-50" x-init="AOS.init();">
-    <!-- Navigation -->
-    <header class="sticky top-0 z-50 bg-white shadow-md">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <!-- Logo -->
-            <a href="index.html" class="flex items-center space-x-2">
-                <div class="w-10 h-10 rounded-full bg-django-green flex items-center justify-center">
-                    <i class="fab fa-python text-white text-2xl"></i>
-                </div>
-                <span class="text-xl font-bold text-django-green">Django Namibia</span>
-            </a>
-
-            <!-- Desktop Navigation -->
-            <nav class="hidden md:flex space-x-8">
-                <a href="{% url "website:home" %}" class="font-medium hover:text-django-teal transition text-django-green">Home</a>
-                <a href="{% url "website:about" %}" class="font-medium hover:text-django-teal transition text-django-green">About</a>
-                <a href="{% url "website:coc" %}" class="font-medium hover:text-django-teal transition text-django-green">COC</a>
-                <a href="{% url "website:resources" %}"class="font-medium hover:text-django-teal transition text-django-teal">Resources</a>
-            </nav>
-
-            <!-- Mobile menu button -->
-            <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-django-green">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
-        </div>
-
-        <!-- Mobile Navigation -->
-        <div x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false" class="md:hidden bg-white shadow-lg"
-            x-transition>
-            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
-                <a href="{% url "website:home" %}"
-                    class="font-medium py-2 hover:text-django-teal transition text-django-green">Home</a>
-                <a href="{% url "website:about" %}"
-                    class="font-medium py-2 hover:text-django-teal transition text-django-green">About</a>
-                <a href="{% url "website:coc" %}"
-                    class="font-medium py-2 hover:text-django-teal transition text-django-green">COC</a>
-                <a href="{% url "website:resources" %}"
-                    class="font-medium py-2 hover:text-django-teal transition text-django-teal">Resources</a>
-            </div>
-        </div>
-    </header>
-
+{% block content %}
     <!-- Hero Section -->
     <section class="relative bg-gradient-to-r from-django-green to-django-light-green text-white py-20">
         <div class="container mx-auto px-4 text-center">
@@ -209,7 +16,93 @@
 
     <!-- Resource Tabs -->
     <section class="py-12 bg-white">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto px-4" x-data="{ 
+            activeTab: 'learning',
+            resources: {
+                learning: [
+                    {
+                        title: 'Django Official Documentation',
+                        description: 'The complete documentation for all Django versions',
+                        link: 'https://docs.djangoproject.com/',
+                        type: 'documentation',
+                        level: 'all'
+                    },
+                    {
+                        title: 'Django for Beginners',
+                        description: 'Step-by-step guide to building Django applications',
+                        link: 'https://djangoforbeginners.com/',
+                        type: 'book',
+                        level: 'beginner'
+                    },
+                    {
+                        title: 'Django Girls Tutorial',
+                        description: 'Beginner-friendly tutorial that builds a blog application',
+                        link: 'https://tutorial.djangogirls.org/',
+                        type: 'tutorial',
+                        level: 'beginner'
+                    },
+                    {
+                        title: 'Two Scoops of Django',
+                        description: 'Best practices for Django development',
+                        link: 'https://www.feldroy.com/books/two-scoops-of-django-3-x',
+                        type: 'book',
+                        level: 'intermediate'
+                    },
+                    {
+                        title: 'Django REST Framework',
+                        description: 'Powerful toolkit for building Web APIs',
+                        link: 'https://www.django-rest-framework.org/',
+                        type: 'documentation',
+                        level: 'intermediate'
+                    },
+                    {
+                        title: 'Advanced Django Patterns',
+                        description: 'Advanced techniques for experienced Django developers',
+                        link: 'https://advanced-django.com/',
+                        type: 'course',
+                        level: 'advanced'
+                    }
+                ],
+                tools: [
+                    {
+                        title: 'Django Extensions',
+                        description: 'Collection of custom extensions for Django',
+                        link: 'https://django-extensions.readthedocs.io/',
+                        category: 'development'
+                    },
+                    {
+                        title: 'Django Debug Toolbar',
+                        description: 'Configurable panels to debug Django applications',
+                        link: 'https://django-debug-toolbar.readthedocs.io/',
+                        category: 'debugging'
+                    },
+                    {
+                        title: 'Django Crispy Forms',
+                        description: 'Beautifully styled Django forms with minimal effort',
+                        link: 'https://django-crispy-forms.readthedocs.io/',
+                        category: 'forms'
+                    },
+                    {
+                        title: 'Django Allauth',
+                        description: 'Integrated set of authentication solutions',
+                        link: 'https://django-allauth.readthedocs.io/',
+                        category: 'authentication'
+                    },
+                    {
+                        title: 'Django Storages',
+                        description: 'Custom storage backends for Django',
+                        link: 'https://django-storages.readthedocs.io/',
+                        category: 'storage'
+                    },
+                    {
+                        title: 'Django Filter',
+                        description: 'Dynamic QuerySet filtering from URL parameters',
+                        link: 'https://django-filter.readthedocs.io/',
+                        category: 'filtering'
+                    }
+                ]
+            }
+        }">
             <div class="flex flex-wrap border-b border-gray-200 mb-8" data-aos="fade-up">
                 <button @click="activeTab = 'learning'" class="px-4 py-2 font-medium text-sm rounded-t-lg mr-2"
                     :class="activeTab === 'learning' ? 'bg-django-green text-white' : 'text-django-green hover:bg-gray-100'">
@@ -413,6 +306,7 @@
             </div>
         </div>
     </section>
+
     <!-- Django Books Section -->
     <section id="django-books" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
@@ -430,7 +324,7 @@
                     data-aos="fade-up">
                     <div class="md:flex">
                         <div class="md:w-1/3 bg-gray-100 flex items-center justify-center p-6">
-                            <img src="{% static "website/images/books/beginner-django.jpg" %}"
+                            <img src="{% static 'website/images/books/beginner-django.jpg' %}"
                                 alt="Django for Beginners book cover" class="h-48 object-contain shadow-lg">
                         </div>
                         <div class="md:w-2/3 p-6">
@@ -455,7 +349,7 @@
                     data-aos-delay="100">
                     <div class="md:flex">
                         <div class="md:w-1/3 bg-gray-100 flex items-center justify-center p-6">
-                            <img src="{% static "website//images/books/django-beginner-api.jpg" %}"
+                            <img src="{% static 'website/images/books/django-beginner-api.jpg' %}"
                                 alt="Django for APIs book cover" class="h-48 object-contain shadow-lg">
                         </div>
                         <div class="md:w-2/3 p-6">
@@ -480,7 +374,7 @@
                     data-aos-delay="200">
                     <div class="md:flex">
                         <div class="md:w-1/3 bg-gray-100 flex items-center justify-center p-6">
-                            <img src="{% static "website//images/books/django-professional.jpg" %}"
+                            <img src="{% static 'website/images/books/django-professional.jpg' %}"
                                 alt="Django for Professionals book cover" class="h-48 object-contain shadow-lg">
                         </div>
                         <div class="md:w-2/3 p-6">
@@ -504,7 +398,7 @@
                     data-aos-delay="100">
                     <div class="md:flex">
                         <div class="md:w-1/3 bg-gray-100 flex items-center justify-center p-6">
-                            <img src="{% static "website//images/books/boost-django-dx.png" %}"
+                            <img src="{% static 'website/images/books/boost-django-dx.png' %}"
                                 alt="Django Design Patterns book cover" class="h-48 object-contain shadow-lg">
                         </div>
                         <div class="md:w-2/3 p-6">
@@ -588,67 +482,4 @@
             </div>
         </div>
     </section>
-    <!-- Footer -->
-    <footer class="bg-gradient-to-br from-django-green to-django-light-green text-white py-10">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4 flex items-center">
-                        <i class="fab fa-python mr-2"></i> Django Namibia
-                    </h3>
-                    <p class="text-gray-300">The official community for Django developers in Namibia.</p>
-                </div>
-
-                <div>
-                    <h4 class="font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-300 hover:text-white transition">Home</a></li>
-                        <li><a href="about.html" class="text-gray-300 hover:text-white transition">About</a></li>
-                        <li><a href="events.html" class="text-gray-300 hover:text-white transition">Events</a></li>
-                        <li><a href="resources.html" class="text-gray-300 hover:text-white transition">Resources</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="font-semibold mb-4">Django Resources</h4>
-                    <ul class="space-y-2">
-                        <li><a href="https://www.djangoproject.com" target="_blank"
-                                class="text-gray-300 hover:text-white transition">Django Official</a></li>
-                        <li><a href="https://docs.djangoproject.com" target="_blank"
-                                class="text-gray-300 hover:text-white transition">Django Docs</a></li>
-                        <li><a href="https://djangopackages.org" target="_blank"
-                                class="text-gray-300 hover:text-white transition">Django Packages</a></li>
-                        <li><a href="https://forum.djangoproject.com" target="_blank"
-                                class="text-gray-300 hover:text-white transition">Django Forum</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="font-semibold mb-4">Connect With Us</h4>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-300 hover:text-white text-xl transition">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" class="text-gray-300 hover:text-white text-xl transition">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="text-gray-300 hover:text-white text-xl transition">
-                            <i class="fab fa-slack"></i>
-                        </a>
-                        <a href="#" class="text-gray-300 hover:text-white text-xl transition">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
-                <p>&copy; 2023 Django Namibia Community. All rights reserved.</p>
-                <p class="text-xs mt-2">Django is a registered trademark of the Django Software Foundation.</p>
-            </div>
-        </div>
-    </footer>
-</body>
-
-</html>
+{% endblock %}
