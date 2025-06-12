@@ -92,9 +92,6 @@
                 <a href="{% url 'website:resources' %}" class="font-medium hover:text-django-teal transition"
                     :class="activeSection === 'resources' ? 'text-django-teal' : 'text-django-green'"
                     @click="activeSection = 'resources'">Resources</a>
-                <a href="{% url 'website:signup' %}" class="font-medium hover:text-django-teal transition"
-                    :class="activeSection === 'resources' ? 'text-django-teal' : 'text-django-green'"
-                    @click="activeSection = 'resources'">Signup</a>
                 <a href="https://www.pythonnamibia.org/" class="font-medium hover:text-django-teal transition"
                     :class="activeSection === 'resources' ? 'text-django-teal' : 'text-django-green'"
                     @click="activeSection = 'resources'">PYNAM</a>
@@ -124,8 +121,10 @@
                     @click="mobileMenuOpen = false; activeSection = 'forum'">COC</a>
                 <a href="{% url 'website:resources' %}" class="font-medium py-2 hover:text-django-teal transition"
                     @click="mobileMenuOpen = false; activeSection = 'resources'">Resources</a>
-                <a href="{% url 'website:signup' %}" class="font-medium py-2 hover:text-django-teal transition"
-                    @click="mobileMenuOpen = false; activeSection = 'resources'">Signup</a>
+                <a href="https://www.pythonnamibia.org/" class="font-medium py-2 hover:text-django-teal transition"
+                    @click="mobileMenuOpen = false; activeSection = 'resources'">PYNAM</a>
+                <a href="https://na.pycon.org/" class="font-medium py-2 hover:text-django-teal transition"
+                    @click="mobileMenuOpen = false; activeSection = 'resources'">PyCon Namibia</a>
 
             </div>
         </div>
