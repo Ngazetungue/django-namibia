@@ -212,55 +212,36 @@
                             </div>
                         </li>
                     </ul>
-                    <!-- 
-                    <div class="mt-8">
-                        <a href="#register"
-                            class="inline-block bg-django-teal hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-lg transition">
-                            Register for Django Day
-                        </a>
-                    </div> -->
+
                 </div>
             </div>
 
             <!-- Past Events Gallery -->
             <div class="mb-16" data-aos="fade-up">
-                <h3 class="text-2xl font-bold text-center mb-8">Past Django Day Moments</h3>
+                <h3 class="text-2xl font-bold text-center mb-8">Django Day Moments</h3>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <a href="#" class="group relative overflow-hidden rounded-lg shadow-md">
+                    <a href="" class="group relative overflow-hidden rounded-lg shadow-md">
                         <img src="{% static "website/images/day/1.jpg" %}"
                             alt="Workshop session"
                             class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
-                        <div
-                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                            <span class="text-white font-medium">2023 Workshop</span>
-                        </div>
                     </a>
                     <a href="#" class="group relative overflow-hidden rounded-lg shadow-md">
                         <img src="{% static "website/images/day/2.jpg" %}"
                             alt="Group discussion"
                             class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
-                        <div
-                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                            <span class="text-white font-medium">Panel Discussion</span>
-                        </div>
+
                     </a>
                     <a href="#" class="group relative overflow-hidden rounded-lg shadow-md">
                         <img src="{% static "website/images/day/3.jpg" %}"
                             alt="Coding session"
                             class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
-                        <div
-                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                            <span class="text-white font-medium">Code Sprints</span>
-                        </div>
+
                     </a>
                     <a href="#" class="group relative overflow-hidden rounded-lg shadow-md">
                         <img src="{% static "website/images/day/4.jpg" %}"
                             alt="Networking"
                             class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
-                        <div
-                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                            <span class="text-white font-medium">Networking</span>
-                        </div>
+
                     </a>
                 </div>
             </div>
@@ -273,36 +254,6 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center text-django-green mb-12" data-aos="fade-up">Upcoming Django Events
             </h2>
-
-            {% comment %} <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" x-data="{ events: [
-                { id: 1, title: 'Django Beginners Workshop', date: '2023-11-15', location: 'Windhoek', description: 'Learn Django fundamentals in this hands-on workshop. Basic Python knowledge required.', image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' },
-                { id: 2, title: 'Django REST Framework', date: '2023-12-05', location: 'Online', description: 'Build APIs with Django REST Framework. Intermediate Django knowledge required.', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' },
-                { id: 3, title: 'Monthly Django Meetup', date: '2023-12-15', location: 'Windhoek', description: 'Monthly gathering with talks, networking, and project showcases.', image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' }
-            ] }">
-                <template x-for="(event, index) in events" :key="event.id">
-                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition"
-                        :data-aos="index % 2 === 0 ? 'fade-right' : 'fade-left'" :data-aos-delay="index * 100">
-                        <img :src="event.image" :alt="event.title" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold text-django-green mb-2" x-text="event.title"></h3>
-                            <div class="flex items-center text-gray-600 mb-3">
-                                <i class="fas fa-calendar-day mr-2 text-django-teal"></i>
-                                <span
-                                    x-text="new Date(event.date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })"></span>
-                            </div>
-                            <div class="flex items-center text-gray-600 mb-4">
-                                <i class="fas fa-map-marker-alt mr-2 text-namibia-red"></i>
-                                <span x-text="event.location"></span>
-                            </div>
-                            <p class="text-gray-700 mb-4" x-text="event.description"></p>
-                            <button
-                                class="bg-django-green hover:bg-green-900 text-white font-medium py-2 px-4 rounded transition">
-                                Register Now
-                            </button>
-                        </div>
-                    </div>
-                </template>
-            </div> {% endcomment %}
 
             <div class="text-center mt-10" data-aos="fade-up">
                 <a href="#"
@@ -379,42 +330,37 @@
                 Action</h2>
 
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <!-- Community Image 1 -->
+
                 <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition" data-aos="fade-up">
                     <img src="{% static "website/images/community/1.jpg" %}"
                         alt="Django Namibia meetup"
                         class="w-full h-48 object-cover hover:scale-105 transition duration-500">
                 </div>
 
-                <!-- Community Image 2 -->
                 <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition" data-aos="fade-up"
                     data-aos-delay="100">
                     <img src="{% static "website/images/community/2.jpg" %}"
                         alt="Coding workshop" class="w-full h-48 object-cover hover:scale-105 transition duration-500">
                 </div>
 
-                <!-- Community Image 3 -->
                 <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition" data-aos="fade-up"
                     data-aos-delay="200">
                     <img src="{% static "website/images/community/3.jpg" %}"
                         alt="Group discussion" class="w-full h-48 object-cover hover:scale-105 transition duration-500">
                 </div>
 
-                <!-- Community Image 4 -->
                 <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition" data-aos="fade-up"
                     data-aos-delay="300">
                     <img src="{% static "website/images/community/4.jpg" %}"
                         alt="Pair programming" class="w-full h-48 object-cover hover:scale-105 transition duration-500">
                 </div>
 
-                <!-- Community Image 5 -->
                 <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition" data-aos="fade-up">
                     <img src="{% static "website/images/community/5.jpg" %}"
                         alt="Presentation at meetup"
                         class="w-full h-48 object-cover hover:scale-105 transition duration-500">
                 </div>
 
-                <!-- Community Image 6 -->
                 <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition" data-aos="fade-up"
                     data-aos-delay="100">
                     <img src="{% static "website/images/community/6.jpg" %}"
@@ -422,7 +368,6 @@
                         class="w-full h-48 object-cover hover:scale-105 transition duration-500">
                 </div>
 
-                <!-- Community Image 7 -->
                 <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition" data-aos="fade-up"
                     data-aos-delay="200">
                     <img src="{% static "website/images/community/7.jpg" %}"
@@ -430,20 +375,12 @@
                         class="w-full h-48 object-cover hover:scale-105 transition duration-500">
                 </div>
 
-                <!-- Community Image 8 -->
                 <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition" data-aos="fade-up"
                     data-aos-delay="300">
                     <img src="{% static "website/images/community/8.jpg" %}"
                         alt="Networking event" class="w-full h-48 object-cover hover:scale-105 transition duration-500">
                 </div>
             </div>
-{% comment %} 
-            <div class="text-center mt-10">
-                <a href="#"
-                    class="inline-block bg-django-green hover:bg-green-900 text-white font-bold py-3 px-6 rounded-lg transition">
-                    View More Community Photos
-                </a>
-            </div> {% endcomment %}
         </div>
     </section>
 
@@ -451,7 +388,7 @@
     <section id="join" class="py-20 bg-gradient-to-r from-django-light-green to-django-green text-white">
         <div class="container mx-auto px-4 text-center">
             <div class="max-w-4xl mx-auto relative">
-                <!-- Background pattern -->
+
                 <div class="absolute inset-0 opacity-10">
                     <div class="absolute top-0 left-0 w-32 h-32 rounded-full bg-django-teal opacity-30 animate-pulse">
                     </div>
@@ -472,8 +409,8 @@
                         <div class="text-4xl mb-4 text-django-teal">
                             <i class="fab fa-discord"></i>
                         </div>
-                        <img src="https://images.unsplash.com/photo-1571260898930-a8f1d3ce1d1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=60"
-                            alt="Slack community"
+                        <img src="{% static "website/images/partners/pycon-logo.jpg" %}"
+                            alt="Discord community"
                             class="w-20 h-20 rounded-full mx-auto mb-4 object-cover border-2 border-white">
                         <h3 class="text-xl font-semibold mb-3">Discord Channel</h3>
                         <p class="mb-4">Join our Django Namibia Discord workspace for discussions and help.</p>
@@ -561,16 +498,16 @@
                     </div>
                     <div class="md:w-1/2 bg-gray-100 p-6">
                         <h3 class="text-xl font-semibold text-django-green mb-4">Community Discussion</h3>
-                        <p class="text-gray-700 mb-4">Join our community discussions on Slack, GitHub, or at our next
+                        <p class="text-gray-700 mb-4">Join our community discussions on Discord, GitHub, or at our next
                             meetup event.</p>
 
                         <div class="border rounded-lg p-4 bg-white">
                             <h4 class="font-medium text-django-green mb-2">Connect with us:</h4>
                             <div class="flex space-x-4 justify-center">
-                                <a href="#" class="text-2xl text-django-teal hover:text-django-green transition">
+                                <a href="https://discord.gg/QwpARXXD" class="text-2xl text-django-teal hover:text-django-green transition">
                                     <i class="fab fa-discord"></i>
                                 </a>
-                                <a href="#" class="text-2xl text-django-teal hover:text-django-green transition">
+                                <a href="https://github.com/Ngazetungue/django-namibia" class="text-2xl text-django-teal hover:text-django-green transition">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
