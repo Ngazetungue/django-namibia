@@ -1,0 +1,733 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Resources - Django Namibia Community</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'django-green': '#092E20',
+                        'django-light-green': '#0C4B33',
+                        'django-teal': '#199D80',
+                        'namibia-blue': '#003580',
+                        'namibia-red': '#D21034',
+                    },
+                    animation: {
+                        'spin-slow': 'spin 8s linear infinite',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'pulse-slow': 'pulse 5s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body x-data="{ 
+    mobileMenuOpen: false,
+    activeTab: 'learning',
+    resources: {
+        learning: [
+            {
+                title: 'Django Official Documentation',
+                description: 'The complete documentation for all Django versions',
+                link: 'https://docs.djangoproject.com/',
+                type: 'documentation',
+                level: 'all'
+            },
+            {
+                title: 'Django for Beginners',
+                description: 'Step-by-step guide to building Django applications',
+                link: 'https://djangoforbeginners.com/',
+                type: 'book',
+                level: 'beginner'
+            },
+            {
+                title: 'Django Girls Tutorial',
+                description: 'Beginner-friendly tutorial that builds a blog application',
+                link: 'https://tutorial.djangogirls.org/',
+                type: 'tutorial',
+                level: 'beginner'
+            },
+            {
+                title: 'Two Scoops of Django',
+                description: 'Best practices for Django development',
+                link: 'https://www.feldroy.com/books/two-scoops-of-django-3-x',
+                type: 'book',
+                level: 'intermediate'
+            },
+            {
+                title: 'Django REST Framework',
+                description: 'Powerful toolkit for building Web APIs',
+                link: 'https://www.django-rest-framework.org/',
+                type: 'documentation',
+                level: 'intermediate'
+            },
+            {
+                title: 'Advanced Django Patterns',
+                description: 'Advanced techniques for experienced Django developers',
+                link: 'https://advanced-django.com/',
+                type: 'course',
+                level: 'advanced'
+            }
+        ],
+        namibia: [
+            {
+                title: 'Namibia e-Government API',
+                description: 'Open API for integrating with Namibia government services',
+                link: 'https://github.com/namibia-egov/api',
+                type: 'project',
+                language: 'Python'
+            },
+            {
+                title: 'Windhoek Bus Schedule',
+                description: 'Open-source Django app for Windhoek public transport',
+                link: 'https://github.com/namibia-dev/windhoek-bus',
+                type: 'project',
+                language: 'Python'
+            },
+            {
+                title: 'Namibia COVID-19 Tracker',
+                description: 'Django-based dashboard for Namibia COVID statistics',
+                link: 'https://github.com/namibia-health/covid-tracker',
+                type: 'project',
+                language: 'Python'
+            },
+            {
+                title: 'Django Namibia Starter Kit',
+                description: 'Template project with common Namibia-specific configurations',
+                link: 'https://github.com/django-namibia/starter-kit',
+                type: 'boilerplate',
+                language: 'Python'
+            }
+        ],
+        tools: [
+            {
+                title: 'Django Extensions',
+                description: 'Collection of custom extensions for Django',
+                link: 'https://django-extensions.readthedocs.io/',
+                category: 'development'
+            },
+            {
+                title: 'Django Debug Toolbar',
+                description: 'Configurable panels to debug Django applications',
+                link: 'https://django-debug-toolbar.readthedocs.io/',
+                category: 'debugging'
+            },
+            {
+                title: 'Django Crispy Forms',
+                description: 'Beautifully styled Django forms with minimal effort',
+                link: 'https://django-crispy-forms.readthedocs.io/',
+                category: 'forms'
+            },
+            {
+                title: 'Django Allauth',
+                description: 'Integrated set of authentication solutions',
+                link: 'https://django-allauth.readthedocs.io/',
+                category: 'authentication'
+            },
+            {
+                title: 'Django Storages',
+                description: 'Custom storage backends for Django',
+                link: 'https://django-storages.readthedocs.io/',
+                category: 'storage'
+            },
+            {
+                title: 'Django Filter',
+                description: 'Dynamic QuerySet filtering from URL parameters',
+                link: 'https://django-filter.readthedocs.io/',
+                category: 'filtering'
+            }
+        ]
+    }
+}" class="font-sans bg-gray-50" x-init="AOS.init();">
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center space-x-2">
+                <div class="w-10 h-10 rounded-full bg-django-green flex items-center justify-center">
+                    <i class="fab fa-python text-white text-2xl"></i>
+                </div>
+                <span class="text-xl font-bold text-django-green">Django Namibia</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="{% url "website:home" %}" class="font-medium hover:text-django-teal transition text-django-green">Home</a>
+                <a href="{% url "website:about" %}" class="font-medium hover:text-django-teal transition text-django-green">About</a>
+                <a href="{% url "website:coc" %}" class="font-medium hover:text-django-teal transition text-django-green">COC</a>
+                <a href="{% url "website:resources" %}"class="font-medium hover:text-django-teal transition text-django-teal">Resources</a>
+            </nav>
+
+            <!-- Mobile menu button -->
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-django-green">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false" class="md:hidden bg-white shadow-lg"
+            x-transition>
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="{% url "website:home" %}"
+                    class="font-medium py-2 hover:text-django-teal transition text-django-green">Home</a>
+                <a href="{% url "website:about" %}"
+                    class="font-medium py-2 hover:text-django-teal transition text-django-green">About</a>
+                <a href="{% url "website:coc" %}"
+                    class="font-medium py-2 hover:text-django-teal transition text-django-green">COC</a>
+                <a href="{% url "website:resources" %}"
+                    class="font-medium py-2 hover:text-django-teal transition text-django-teal">Resources</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-django-green to-django-light-green text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6" data-aos="fade-up">Django Resources</h1>
+            <p class="text-xl mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Collection of learning materials, Namibian projects, and essential tools for Django developers
+            </p>
+        </div>
+    </section>
+
+    <!-- Resource Tabs -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap border-b border-gray-200 mb-8" data-aos="fade-up">
+                <button @click="activeTab = 'learning'" class="px-4 py-2 font-medium text-sm rounded-t-lg mr-2"
+                    :class="activeTab === 'learning' ? 'bg-django-green text-white' : 'text-django-green hover:bg-gray-100'">
+                    <i class="fas fa-book mr-2"></i> Learning Resources
+                </button>
+                <button @click="activeTab = 'namibia'" class="px-4 py-2 font-medium text-sm rounded-t-lg mr-2"
+                    :class="activeTab === 'namibia' ? 'bg-django-green text-white' : 'text-django-green hover:bg-gray-100'">
+                    <i class="fas fa-map-marker-alt mr-2"></i> Namibia Projects
+                </button>
+                <button @click="activeTab = 'tools'" class="px-4 py-2 font-medium text-sm rounded-t-lg"
+                    :class="activeTab === 'tools' ? 'bg-django-green text-white' : 'text-django-green hover:bg-gray-100'">
+                    <i class="fas fa-tools mr-2"></i> Tools & Packages
+                </button>
+            </div>
+
+            <!-- Learning Resources Tab -->
+            <div x-show="activeTab === 'learning'" x-transition class="mb-12">
+                <div class="mb-8" data-aos="fade-up">
+                    <h2 class="text-2xl font-bold text-django-green mb-4">Learning Paths</h2>
+                    <p class="text-gray-700 mb-6">
+                        Whether you're just starting with Django or looking to advance your skills, these resources will
+                        help you grow.
+                    </p>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <template x-for="resource in resources.learning" :key="resource.title">
+                            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-django-teal hover:shadow-md transition"
+                                data-aos="fade-up">
+                                <div class="flex items-start mb-3">
+                                    <div class="mr-3 text-django-teal">
+                                        <template x-if="resource.type === 'documentation'">
+                                            <i class="fas fa-book-open text-xl"></i>
+                                        </template>
+                                        <template x-if="resource.type === 'book'">
+                                            <i class="fas fa-book text-xl"></i>
+                                        </template>
+                                        <template x-if="resource.type === 'tutorial'">
+                                            <i class="fas fa-laptop-code text-xl"></i>
+                                        </template>
+                                        <template x-if="resource.type === 'course'">
+                                            <i class="fas fa-graduation-cap text-xl"></i>
+                                        </template>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-django-green" x-text="resource.title"></h3>
+                                        <span class="text-xs px-2 py-1 rounded-full mr-2" :class="{
+                                                'bg-blue-100 text-blue-800': resource.level === 'beginner',
+                                                'bg-yellow-100 text-yellow-800': resource.level === 'intermediate',
+                                                'bg-red-100 text-red-800': resource.level === 'advanced',
+                                                'bg-gray-100 text-gray-800': resource.level === 'all'
+                                            }"
+                                            x-text="resource.level.charAt(0).toUpperCase() + resource.level.slice(1)">
+                                        </span>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 text-sm mb-4" x-text="resource.description"></p>
+                                <a :href="resource.link" target="_blank"
+                                    class="text-django-teal hover:underline text-sm font-medium">
+                                    Visit Resource <i class="fas fa-external-link-alt ml-1"></i>
+                                </a>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <div data-aos="fade-up">
+                    <h2 class="text-2xl font-bold text-django-green mb-4">Official Django Resources</h2>
+                    <div class="grid md:grid-cols-4 gap-4 text-center">
+                        <a href="https://www.djangoproject.com/start/" target="_blank"
+                            class="block p-6 bg-gray-50 rounded-lg shadow hover:shadow-md transition">
+                            <i class="fas fa-rocket text-django-teal text-3xl mb-3"></i>
+                            <h3 class="font-medium text-django-green">Getting Started</h3>
+                        </a>
+                        <a href="https://docs.djangoproject.com/en/stable/contents/" target="_blank"
+                            class="block p-6 bg-gray-50 rounded-lg shadow hover:shadow-md transition">
+                            <i class="fas fa-book text-django-teal text-3xl mb-3"></i>
+                            <h3 class="font-medium text-django-green">Documentation</h3>
+                        </a>
+                        <a href="https://docs.djangoproject.com/en/stable/topics/" target="_blank"
+                            class="block p-6 bg-gray-50 rounded-lg shadow hover:shadow-md transition">
+                            <i class="fas fa-clipboard-list text-django-teal text-3xl mb-3"></i>
+                            <h3 class="font-medium text-django-green">Topics Guide</h3>
+                        </a>
+                        <a href="https://docs.djangoproject.com/en/stable/howto/" target="_blank"
+                            class="block p-6 bg-gray-50 rounded-lg shadow hover:shadow-md transition">
+                            <i class="fas fa-question-circle text-django-teal text-3xl mb-3"></i>
+                            <h3 class="font-medium text-django-green">How-To Guides</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Namibia Projects Tab -->
+            <div x-show="activeTab === 'namibia'" x-transition class="mb-12">
+                <div class="mb-8" data-aos="fade-up">
+                    <h2 class="text-2xl font-bold text-django-green mb-4">Projects with Namibian Context</h2>
+                    <p class="text-gray-700 mb-6">
+                        These Django projects are either developed in Namibia or specifically address Namibian needs.
+                        Contribute or use them as inspiration for your own projects.
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <template x-for="project in resources.namibia" :key="project.title">
+                            <div class="bg-gray-50 p-6 rounded-lg hover:shadow-md transition" data-aos="fade-up">
+                                <div class="flex items-start mb-3">
+                                    <div class="mr-3 text-django-teal">
+                                        <template x-if="project.type === 'project'">
+                                            <i class="fas fa-code-branch text-xl"></i>
+                                        </template>
+                                        <template x-if="project.type === 'boilerplate'">
+                                            <i class="fas fa-cubes text-xl"></i>
+                                        </template>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-django-green" x-text="project.title"></h3>
+                                        <span class="text-xs px-2 py-1 bg-gray-100 text-gray-800 rounded-full"
+                                            x-text="project.language">
+                                        </span>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 text-sm mb-4" x-text="project.description"></p>
+                                <div class="flex justify-between items-center">
+                                    <a :href="project.link" target="_blank"
+                                        class="text-django-teal hover:underline text-sm font-medium">
+                                        View Project <i class="fas fa-external-link-alt ml-1"></i>
+                                    </a>
+                                    <button
+                                        class="text-xs bg-django-green text-white px-3 py-1 rounded hover:bg-green-900 transition">
+                                        <i class="fas fa-star mr-1"></i> Star
+                                    </button>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <div data-aos="fade-up">
+                    <h2 class="text-2xl font-bold text-django-green mb-4">Contribute to Open Source</h2>
+                    <div class="bg-django-light-green bg-opacity-10 p-6 rounded-lg">
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="md:w-1/2 mb-6 md:mb-0">
+                                <h3 class="text-xl font-semibold text-django-green mb-3">Submit Your Project</h3>
+                                <p class="text-gray-700 mb-4">
+                                    Have a Django project with Namibian context? Share it with our community!
+                                </p>
+                                <a href="https://github.com/django-namibia/resources" target="_blank"
+                                    class="inline-block bg-django-green hover:bg-green-900 text-white font-medium py-2 px-4 rounded transition">
+                                    Submit on GitHub
+                                </a>
+                            </div>
+                            <div class="md:w-1/2 md:pl-8">
+                                <h3 class="text-xl font-semibold text-django-green mb-3">Contribution Guidelines</h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                    <li>Project must be open source</li>
+                                    <li>Should have clear documentation</li>
+                                    <li>Namibia-specific projects prioritized</li>
+                                    <li>Active maintenance is a plus</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tools & Packages Tab -->
+            <div x-show="activeTab === 'tools'" x-transition>
+                <div class="mb-8" data-aos="fade-up">
+                    <h2 class="text-2xl font-bold text-django-green mb-4">Essential Django Packages</h2>
+                    <p class="text-gray-700 mb-6">
+                        These third-party packages will supercharge your Django development workflow.
+                    </p>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <template x-for="tool in resources.tools" :key="tool.title">
+                            <div class="bg-gray-50 p-6 rounded-lg hover:shadow-md transition" data-aos="fade-up">
+                                <div class="flex items-start mb-3">
+                                    <div class="mr-3 text-django-teal">
+                                        <i class="fas fa-box-open text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-django-green" x-text="tool.title"></h3>
+                                        <span class="text-xs px-2 py-1 bg-gray-100 text-gray-800 rounded-full"
+                                            x-text="tool.category">
+                                        </span>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 text-sm mb-4" x-text="tool.description"></p>
+                                <div class="flex justify-between items-center">
+                                    <a :href="tool.link" target="_blank"
+                                        class="text-django-teal hover:underline text-sm font-medium">
+                                        View Package <i class="fas fa-external-link-alt ml-1"></i>
+                                    </a>
+                                    <span class="text-xs bg-gray-200 text-gray-800 px-2 py-1 rounded">
+                                        <i class="fas fa-download mr-1"></i> pip install
+                                    </span>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <div data-aos="fade-up">
+                    <h2 class="text-2xl font-bold text-django-green mb-4">Development Tools</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h3 class="font-semibold text-django-green mb-3">Recommended IDE Setup</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <div class="text-django-teal mr-3 mt-1">
+                                        <i class="fab fa-python"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">PyCharm Professional</h4>
+                                        <p class="text-gray-700 text-sm">Best Django support with dedicated template
+                                            debugging</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="text-django-teal mr-3 mt-1">
+                                        <i class="fas fa-code"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">VS Code</h4>
+                                        <p class="text-gray-700 text-sm">Lightweight with excellent Python/Django
+                                            extensions</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h3 class="font-semibold text-django-green mb-3">Browser Extensions</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <div class="text-django-teal mr-3 mt-1">
+                                        <i class="fab fa-chrome"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">Django Debug Toolbar</h4>
+                                        <p class="text-gray-700 text-sm">Chrome extension for enhanced debugging</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="text-django-teal mr-3 mt-1">
+                                        <i class="fas fa-network-wired"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">Postman</h4>
+                                        <p class="text-gray-700 text-sm">API development and testing tool</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-gradient-to-br from-django-light-green to-django-green text-white">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-3xl mx-auto" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-6">Get New Resources Directly</h2>
+                <p class="text-xl mb-8">
+                    Join our newsletter to receive curated Django resources and Namibia-specific updates monthly.
+                </p>
+
+                <form class="max-w-md mx-auto flex">
+                    <input type="email" placeholder="Your email address"
+                        class="flex-grow px-4 py-3 rounded-l-lg focus:outline-none text-gray-900">
+                    <button type="submit"
+                        class="bg-namibia-blue hover:bg-blue-900 px-6 py-3 rounded-r-lg font-medium transition">
+                        Subscribe
+                    </button>
+                </form>
+
+                <p class="text-sm mt-4 opacity-80">
+                    We respect your privacy. Unsubscribe at any time.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Django Books Section -->
+    <section id="django-books" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-django-green mb-4" data-aos="fade-up">Django Books & Resources</h2>
+                <div class="w-24 h-2 bg-django-teal mx-auto mb-6"></div>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    Collection of books to take your Django skills to the next level
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Book 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition"
+                    data-aos="fade-up">
+                    <div class="md:flex">
+                        <div class="md:w-1/3 bg-gray-100 flex items-center justify-center p-6">
+                            <img src="{% static "website/images/books/beginner-django.jpg" %}"
+                                alt="Django for Beginners book cover" class="h-48 object-contain shadow-lg">
+                        </div>
+                        <div class="md:w-2/3 p-6">
+                            <h3 class="text-xl font-bold text-django-green mb-2">Django for Beginners</h3>
+                            <p class="text-gray-600 text-sm mb-2">William S. Vincent</p>
+                            <div class="flex mb-3">
+                                <span class="bg-django-green text-white text-xs px-2 py-1 rounded mr-2">Beginner</span>
+                                <span class="bg-django-teal text-white text-xs px-2 py-1 rounded">2024</span>
+                            </div>
+                            <p class="text-gray-700 text-sm mb-4">Build websites with Django and Python from scratch.
+                            </p>
+                            <a href="https://djangoforbeginners.com" target="_blank"
+                                class="text-django-teal hover:underline font-medium text-sm inline-flex items-center">
+                                View Book <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <div class="md:flex">
+                        <div class="md:w-1/3 bg-gray-100 flex items-center justify-center p-6">
+                            <img src="{% static "website//images/books/django-beginner-api.jpg" %}"
+                                alt="Django for APIs book cover" class="h-48 object-contain shadow-lg">
+                        </div>
+                        <div class="md:w-2/3 p-6">
+                            <h3 class="text-xl font-bold text-django-green mb-2">Django for APIs</h3>
+                            <p class="text-gray-600 text-sm mb-2">William S. Vincent</p>
+                            <div class="flex mb-3">
+                                <span
+                                    class="bg-django-green text-white text-xs px-2 py-1 rounded mr-2">Intermediate</span>
+                                <span class="bg-django-teal text-white text-xs px-2 py-1 rounded">2025</span>
+                            </div>
+                            <p class="text-gray-700 text-sm mb-4">Build web APIs with Django REST Framework.</p>
+                            <a href="https://djangoforapis.com" target="_blank"
+                                class="text-django-teal hover:underline font-medium text-sm inline-flex items-center">
+                                View Book <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <div class="md:flex">
+                        <div class="md:w-1/3 bg-gray-100 flex items-center justify-center p-6">
+                            <img src="{% static "website//images/books/django-professional.jpg" %}"
+                                alt="Django for Professionals book cover" class="h-48 object-contain shadow-lg">
+                        </div>
+                        <div class="md:w-2/3 p-6">
+                            <h3 class="text-xl font-bold text-django-green mb-2">Django for Professionals</h3>
+                            <p class="text-gray-600 text-sm mb-2">William S. Vincent</p>
+                            <div class="flex mb-3">
+                                <span class="bg-django-green text-white text-xs px-2 py-1 rounded mr-2">Advanced</span>
+                                <span class="bg-django-teal text-white text-xs px-2 py-1 rounded">2025</span>
+                            </div>
+                            <p class="text-gray-700 text-sm mb-4">Production-ready websites with Django.</p>
+                            <a href="https://djangoforprofessionals.com" target="_blank"
+                                class="text-django-teal hover:underline font-medium text-sm inline-flex items-center">
+                                View Book <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 5 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <div class="md:flex">
+                        <div class="md:w-1/3 bg-gray-100 flex items-center justify-center p-6">
+                            <img src="{% static "website//images/books/boost-django-dx.png" %}"
+                                alt="Django Design Patterns book cover" class="h-48 object-contain shadow-lg">
+                        </div>
+                        <div class="md:w-2/3 p-6">
+                            <h3 class="text-xl font-bold text-django-green mb-2">Speed Up Your Django Tests</h3>
+                            <p class="text-gray-600 text-sm mb-2">Adam Johnson</p>
+                            <div class="flex mb-3">
+                                <span class="bg-django-green text-white text-xs px-2 py-1 rounded mr-2">Testing</span>
+                                <span class="bg-django-teal text-white text-xs px-2 py-1 rounded">2023</span>
+                            </div>
+                            <p class="text-gray-700 text-sm mb-4">Tools and technigues to improve your development experience</p>
+                            <a href="https://adamchainz.gumroad.com/l/byddx"
+                                target="_blank"
+                                class="text-django-teal hover:underline font-medium text-sm inline-flex items-center">
+                                View Book <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 6 - Community Recommendation -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <div class="md:flex h-full">
+                        <div class="md:w-1/3 bg-django-light-green flex items-center justify-center p-6">
+                            <i class="fas fa-book-open text-white text-5xl"></i>
+                        </div>
+                        <div class="md:w-2/3 p-6 flex flex-col">
+                            <h3 class="text-xl font-bold text-django-green mb-2">Community Recommendations</h3>
+                            <p class="text-gray-700 text-sm mb-4 flex-grow">Suggest books you've found valuable for our
+                                community reading list.</p>
+                            <a href="#forum"
+                                class="text-django-teal hover:underline font-medium text-sm inline-flex items-center">
+                                Suggest a Book <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Resources -->
+            <div class="mt-16 bg-django-light-green bg-opacity-10 p-8 rounded-xl" data-aos="fade-up">
+                <h3 class="text-2xl font-semibold text-center text-django-green mb-6">More Learning Resources</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow hover:shadow-md transition">
+                        <div class="text-django-teal text-2xl mb-3">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h4 class="font-semibold mb-2">Video Courses</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="https://www.djangoproject.com/community/" target="_blank"
+                                    class="text-django-teal hover:underline">Official Django Tutorials</a></li>
+                            <li><a href="https://realpython.com/tutorials/django/" target="_blank"
+                                    class="text-django-teal hover:underline">Real Python Django</a></li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow hover:shadow-md transition">
+                        <div class="text-django-teal text-2xl mb-3">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <h4 class="font-semibold mb-2">Blogs</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="https://djangostars.com/blog/" target="_blank"
+                                    class="text-django-teal hover:underline">Django Stars</a></li>
+                            <li><a href="https://simpleisbetterthancomplex.com/" target="_blank"
+                                    class="text-django-teal hover:underline">Simple is Better</a></li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow hover:shadow-md transition">
+                        <div class="text-django-teal text-2xl mb-3">
+                            <i class="fas fa-podcast"></i>
+                        </div>
+                        <h4 class="font-semibold mb-2">Podcasts</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="https://djangochat.com/" target="_blank"
+                                    class="text-django-teal hover:underline">Django Chat</a></li>
+                            <li><a href="https://runninginproduction.com/" target="_blank"
+                                    class="text-django-teal hover:underline">Running in Production</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gradient-to-br from-django-green to-django-light-green text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fab fa-python mr-2"></i> Django Namibia
+                    </h3>
+                    <p class="text-gray-300">The official community for Django developers in Namibia.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition">Home</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-white transition">About</a></li>
+                        <li><a href="events.html" class="text-gray-300 hover:text-white transition">Events</a></li>
+                        <li><a href="resources.html" class="text-gray-300 hover:text-white transition">Resources</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4">Django Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://www.djangoproject.com" target="_blank"
+                                class="text-gray-300 hover:text-white transition">Django Official</a></li>
+                        <li><a href="https://docs.djangoproject.com" target="_blank"
+                                class="text-gray-300 hover:text-white transition">Django Docs</a></li>
+                        <li><a href="https://djangopackages.org" target="_blank"
+                                class="text-gray-300 hover:text-white transition">Django Packages</a></li>
+                        <li><a href="https://forum.djangoproject.com" target="_blank"
+                                class="text-gray-300 hover:text-white transition">Django Forum</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white text-xl transition">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white text-xl transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white text-xl transition">
+                            <i class="fab fa-slack"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white text-xl transition">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
+                <p>&copy; 2023 Django Namibia Community. All rights reserved.</p>
+                <p class="text-xs mt-2">Django is a registered trademark of the Django Software Foundation.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

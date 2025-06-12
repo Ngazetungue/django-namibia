@@ -1,0 +1,171 @@
+{% extends "website/base.html" %}
+{% block content %}
+
+
+    <!-- Replace the Hero Section with this more visual version -->
+    <section class="relative bg-gradient-to-r from-django-green to-django-light-green text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-6" data-aos="fade-up">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-white bg-opacity-20 rounded-full mb-4">
+                    <i class="fas fa-handshake text-3xl"></i>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Community Code of Conduct</h1>
+                <p class="text-xl max-w-3xl mx-auto">
+                    Our shared commitment to creating a welcoming, respectful environment for all Django enthusiasts in
+                    Namibia
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Pledge Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="conduct-section" data-aos="fade-up">
+                <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-django-teal mb-8 flex items-start">
+                    <i class="fas fa-heart text-django-teal text-2xl mr-4 mt-1"></i>
+                    <div>
+                        <p class="text-lg font-medium text-django-green">
+                            This isn't just rules - it's our community's foundation. By participating in Django Namibia,
+                            you're helping build a space where everyone can thrive, learn, and contribute without fear
+                            of harassment or discrimination.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Enhanced Section with Icons -->
+                <div class="mb-12" data-aos="fade-up">
+                    <h2 class="flex items-center text-2xl font-bold text-django-green mt-8 mb-6">
+                        <i class="fas fa-handshake mr-3 text-django-teal"></i>
+                        Our Community Promise
+                    </h2>
+                    <p class="mb-6 text-gray-700 leading-relaxed">
+                        In the spirit of Ubuntu and Namibia's diverse culture, we pledge to foster an environment where
+                        all participants - regardless of background or experience level - feel valued and empowered.
+                        Whether you're a student in Windhoek, a developer in Swakopmund, or joining us online from
+                        anywhere in Namibia, you belong here.
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-6 mt-8">
+                        <div class="bg-gray-50 p-5 rounded-lg">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-check-circle text-django-teal mr-3"></i>
+                                <h3 class="text-lg font-semibold text-django-green">We Embrace</h3>
+                            </div>
+                            <ul class="text-gray-700 space-y-2 pl-8">
+                                <li class="flex items-start">
+                                    <i class="fas fa-angle-right text-django-teal text-xs mt-1.5 mr-2"></i>
+                                    <span>Kindness and constructive feedback</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-angle-right text-django-teal text-xs mt-1.5 mr-2"></i>
+                                    <span>Diverse perspectives and experiences</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-angle-right text-django-teal text-xs mt-1.5 mr-2"></i>
+                                    <span>Collaboration over competition</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-gray-50 p-5 rounded-lg">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-times-circle text-namibia-red mr-3"></i>
+                                <h3 class="text-lg font-semibold text-django-green">We Reject</h3>
+                            </div>
+                            <ul class="text-gray-700 space-y-2 pl-8">
+                                <li class="flex items-start">
+                                    <i class="fas fa-angle-right text-namibia-red text-xs mt-1.5 mr-2"></i>
+                                    <span>Harassment in any form</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-angle-right text-namibia-red text-xs mt-1.5 mr-2"></i>
+                                    <span>Discriminatory language or behavior</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-angle-right text-namibia-red text-xs mt-1.5 mr-2"></i>
+                                    <span>Exclusionary practices</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced Reporting Section -->
+                <div class="mb-12" data-aos="fade-up">
+                    <h2 class="flex items-center text-2xl font-bold text-django-green mt-8 mb-6">
+                        <i class="fas fa-flag mr-3 text-django-teal"></i>
+                        Your Safety Matters
+                    </h2>
+                    <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-namibia-blue mb-6">
+                        <p class="text-gray-700">
+                            <i class="fas fa-exclamation-circle text-namibia-blue mr-2"></i>
+                            <strong>If you experience or witness misconduct:</strong> You're not alone. Our response
+                            team is here to help
+                            with discretion and care. Reports can be made anonymously if preferred.
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-4 mt-6">
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <div
+                                class="w-12 h-12 mx-auto mb-3 bg-django-teal text-white rounded-full flex items-center justify-center">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3 class="font-medium text-django-green mb-2">Email Us</h3>
+                            <a href="mailto:conduct@djangonamibia.org" class="text-sm text-django-teal hover:underline">
+                                conduct@djangonamibia.org
+                            </a>
+                        </div>
+
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <div
+                                class="w-12 h-12 mx-auto mb-3 bg-django-teal text-white rounded-full flex items-center justify-center">
+                                <i class="fab fa-slack"></i>
+                            </div>
+                            <h3 class="font-medium text-django-green mb-2">Slack DM</h3>
+                            <p class="text-sm text-gray-600">Message any organizer</p>
+                        </div>
+
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <div
+                                class="w-12 h-12 mx-auto mb-3 bg-django-teal text-white rounded-full flex items-center justify-center">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <h3 class="font-medium text-django-green mb-2">In-Person</h3>
+                            <p class="text-sm text-gray-600">Find an event volunteer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Local Context Section -->
+                <div class="mt-12 bg-gray-50 p-6 rounded-lg" data-aos="fade-up">
+                    <h2 class="flex items-center text-xl font-bold text-django-green mb-4">
+                        <i class="fas fa-globe-africa mr-3 text-django-teal"></i>
+                        Namibian Context
+                    </h2>
+                    <p class="text-gray-700 mb-4">
+                        We recognize Namibia's unique cultural diversity and post-colonial context. Our conduct
+                        standards
+                        specifically address:
+                    </p>
+                    <ul class="text-gray-700 space-y-2 pl-5">
+                        <li class="flex items-start">
+                            <i class="fas fa-leaf text-django-teal text-xs mt-1.5 mr-2"></i>
+                            <span>Respect for all ethnic groups and languages</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-leaf text-django-teal text-xs mt-1.5 mr-2"></i>
+                            <span>Sensitivity to historical inequalities</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-leaf text-django-teal text-xs mt-1.5 mr-2"></i>
+                            <span>Encouraging participation from underrepresented groups</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% endblock content %}
