@@ -10,7 +10,7 @@ Welcome to the official repository of the **Django Namibia Community** website, 
 **Django Namibia** operates under the umbrella of the **Python Software Association of Namibia**, a registered non-profit organization dedicated to promoting Python and open-source technology across the country.
 
 ## 🌐 Live Site  
-🔗 _Coming Soon_
+🔗 https://djangonamibia.pythonanywhere.com/
 
 ## 🧰 Technology Stack
 
