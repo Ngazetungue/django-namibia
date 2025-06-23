@@ -27,7 +27,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG') == 'True'
 
-ALLOWED_HOSTS = ['127.0.0.1','djangonamibia.pythonanywhere.com','djangonamibia.org','www.djangonamibia.org']
+ALLOWED_HOSTS = []
 
 
 # Application definition
