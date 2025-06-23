@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Django Namibia - Community of Django Developers{% endblock %}</title>
-    
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -33,13 +31,8 @@
         }
     </script>
     
-    <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
@@ -136,8 +129,6 @@
         {% endblock %}
     </main>
 
-
-    <!-- Footer -->
     <footer class="bg-gradient-to-br from-django-green to-django-light-green text-white py-10">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-4 gap-8">
@@ -171,28 +162,18 @@
                 <div>
                     <h4 class="font-semibold mb-4">Connect With Us</h4>
                     <div class="flex flex-wrap gap-4">
-                        <!-- GitHub -->
-                        <a href="https://github.com/Ngazetungue/django-namibia" 
-                           class="text-gray-300 hover:text-white text-xl transition transform hover:scale-110"
-                           aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
                         
-                        <!-- Twitter/X -->
                         <a href="https://x.com/djangonamibia" 
                            class="text-gray-300 hover:text-white text-xl transition transform hover:scale-110"
                            aria-label="Twitter">
                             <i class="fab fa-twitter"></i>
                         </a>
                         
-                        <!-- Discord -->
                         <a href="https://discord.gg/QwpARXXD" 
                            class="text-gray-300 hover:text-white text-xl transition transform hover:scale-110"
                            aria-label="Discord">
                             <i class="fab fa-discord"></i>
                         </a>
-                        
-                        <!-- Mastodon -->
                         <a href="https://mastodon.social/@yourhandle" 
                            class="text-gray-300 hover:text-white text-xl transition transform hover:scale-110"
                            aria-label="Mastodon">
