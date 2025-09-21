@@ -1,23 +1,25 @@
 {% extends "website/base.html" %}
 {% load static %}
 {% block content %}
-
 <!-- Hero Section -->
-<section id="home" class="relative overflow-hidden min-h-screen flex items-center justify-center text-center bg-[#092E20]">
+<section id="home" 
+    class="relative overflow-hidden min-h-screen flex items-center justify-center text-center bg-[#092E20] pt-0 mt-0">
     <div class="absolute inset-0 overflow-hidden opacity-10">
         <div class="absolute -top-24 -left-24 w-64 h-64 rounded-full bg-white opacity-20"></div>
         <div class="absolute top-1/4 right-0 w-48 h-48 rounded-full bg-green-600 opacity-20"></div>
         <div class="absolute bottom-0 left-1/3 w-64 h-64 rounded-full bg-white opacity-20"></div>
     </div>
-    <div class="container mx-auto px-6 relative z-10 py-20 flex flex-col items-center">
+
+    <div class="container mx-auto px-6 relative z-10 flex flex-col items-center">
         <h1 class="text-6xl md:text-7xl lg:text-8xl font-extrabold mb-10 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-green-200 to-white drop-shadow-2xl">
             Django Namibia
         </h1>
         <p class="text-2xl md:text-3xl lg:text-4xl mb-12 text-white/90 max-w-3xl font-light leading-relaxed">
             Building the Future with Django — Join our growing community of developers building powerful web applications across Namibia.
         </p>
+
         <div class="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-            <a href="#join"
+            <a href="https://discord.com/invite/QwpARXXD"
                class="bg-[#09A676] hover:bg-[#077A5B] text-white font-semibold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition flex items-center justify-center text-lg">
                 <i class="fab fa-discord mr-3"></i> Join Our Community
             </a>
@@ -26,6 +28,7 @@
                 <i class="fas fa-calendar-alt mr-3"></i> Upcoming Events
             </a>
         </div>
+
         <div class="flex flex-col items-center space-y-5">
             <div class="flex -space-x-4">
                 <div class="w-12 h-12 rounded-full border-2 border-white bg-green-500"></div>
@@ -37,6 +40,7 @@
             </p>
         </div>
     </div>
+
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2">
         <div class="animate-bounce">
             <i class="fas fa-chevron-down text-white text-3xl"></i>
@@ -172,9 +176,6 @@
           <div class="relative rounded-xl overflow-hidden shadow-2xl">
             <img src="{% static 'website/images/day/11.JPG' %}" alt="Django Day attendees"
                  class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
-              <h3 class="text-xl font-medium text-white">Django Day 2025 Highlights</h3>
-            </div>
           </div>
         </div>
         <div>
@@ -278,7 +279,6 @@
         </div>
     </div>
 </section>
-
 <!-- Global Django Community Section -->
 <section class="py-24 bg-[#09A676] text-white">
     <div class="container mx-auto px-6 text-center">
