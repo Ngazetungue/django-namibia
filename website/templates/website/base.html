@@ -25,179 +25,111 @@
                     backgroundImage: {
                         'hero-pattern': "url('{% static 'website/header.JPG' %}')",
                     }
-                    
                 }
             }
         }
     </script>
-    
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
     {% block extra_head %}{% endblock %}
 </head>
 
-<body x-data="{ 
-    mobileMenuOpen: false, 
-    activeSection: 'home',
-    currentSlide: 0,
-    slides: [
-        {id: 1, title: 'Django Framework', desc: 'The web framework for perfectionists with deadlines', link: 'https://www.djangoproject.com', img: 'https://static.djangoproject.com/img/logos/django-logo-positive.png'},
-        {id: 2, title: 'Django Documentation', desc: 'Comprehensive documentation for all Django versions', link: 'https://docs.djangoproject.com', img: 'https://static.djangoproject.com/img/fundraising-heart.cd6bb84ffd33.svg'},
-        {id: 3, title: 'Django Community', desc: 'Join the global Django community', link: 'https://www.djangoproject.com/community/', img: 'https://static.djangoproject.com/img/site-fundraising-llama.c44d85fa9313.svg'},
-    ],
-    nextSlide() {
-        this.currentSlide = (this.currentSlide + 1) % this.slides.length;
-    },
-    prevSlide() {
-        this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
-    },
-    autoSlide() {
-        setInterval(() => {
-            this.nextSlide();
-        }, 5000);
-    }
-}" class="font-sans bg-gray-50" x-init="autoSlide(); AOS.init();">
-    <!-- Navigation -->
+<body x-data="{ mobileMenuOpen: false }" class="font-sans bg-gray-50" x-init="AOS.init();">
+
+    <!-- Header / Navigation -->
     <header class="sticky top-0 z-50 bg-white shadow-md">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <!-- Logo -->
-            <a href="{% url 'website:home' %}" class="flex items-center space-x-2" @click="activeSection = 'home'">
-                <div class="w-10 h-10 rounded-full bg-django-green flex items-center justify-center">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="{% url 'website:home' %}" class="flex items-center space-x-3">
+                <div class="w-12 h-12 rounded-full bg-django-green flex items-center justify-center">
                     <i class="fab fa-python text-white text-2xl"></i>
                 </div>
-                <span class="text-xl font-bold text-django-green">Django Namibia</span>
+                <span class="text-2xl font-bold text-django-green tracking-wide">Django Namibia</span>
             </a>
 
             <!-- Desktop Navigation -->
-            <nav class="hidden md:flex space-x-8">
-                <a href="{% url 'website:home' %}" class="font-medium hover:text-django-teal transition"
-                    :class="activeSection === 'home' ? 'text-django-teal' : 'text-django-green'"
-                    @click="activeSection = 'home'">Home</a>
-                <a href="{% url 'website:about' %}" class="font-medium hover:text-django-teal transition"
-                    :class="activeSection === 'about' ? 'text-django-teal' : 'text-django-green'"
-                    @click="activeSection = 'about'">About</a>
-                <a href="{% url 'website:coc' %}" class="font-medium hover:text-django-teal transition"
-                    :class="activeSection === 'coc' ? 'text-django-teal' : 'text-django-green'"
-                    @click="activeSection = 'coc'">COC</a>
-                <a href="{% url 'website:resources' %}" class="font-medium hover:text-django-teal transition"
-                    :class="activeSection === 'resources' ? 'text-django-teal' : 'text-django-green'"
-                    @click="activeSection = 'resources'">Resources</a>
-                <a href="https://www.pythonnamibia.org/" class="font-medium hover:text-django-teal transition"
-                    :class="activeSection === 'resources' ? 'text-django-teal' : 'text-django-green'"
-                    @click="activeSection = 'resources'">PYNAM</a>
-                <a href="https://na.pycon.org/" class="font-medium hover:text-django-teal transition"
-                    :class="activeSection === 'resources' ? 'text-django-teal' : 'text-django-green'"
-                    @click="activeSection = 'resources'">PyCon Namibia</a>
+            <nav class="hidden md:flex space-x-10 text-lg font-medium text-django-green">
+                <a href="{% url 'website:home' %}" class="hover:text-django-teal transition">Home</a>
+                <a href="{% url 'website:about' %}" class="hover:text-django-teal transition">About</a>
+                <a href="{% url 'website:coc' %}" class="hover:text-django-teal transition">COC</a>
+                <a href="{% url 'website:resources' %}" class="hover:text-django-teal transition">Resources</a>
+                <a href="https://www.pythonnamibia.org/" class="hover:text-django-teal transition">PYNAM</a>
+                <a href="https://na.pycon.org/" class="hover:text-django-teal transition">PyCon Namibia</a>
             </nav>
 
-            <!-- Mobile menu button -->
-            <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-django-green">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
+            <!-- Mobile Menu Button -->
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-django-green p-2 rounded-md hover:bg-gray-100 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
             </button>
         </div>
 
         <!-- Mobile Navigation -->
-        <div x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false" class="md:hidden bg-white shadow-lg"
-            x-transition>
-            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
-                <a href="{% url 'website:home' %}" class="font-medium py-2 hover:text-django-teal transition"
-                    @click="mobileMenuOpen = false; activeSection = 'home'">Home</a>
-                <a href="{% url 'website:about' %}" class="font-medium py-2 hover:text-django-teal transition"
-                    @click="mobileMenuOpen = false; activeSection = 'about'">About</a>
-                <a href="{% url 'website:coc' %}" class="font-medium py-2 hover:text-django-teal transition"
-                    @click="mobileMenuOpen = false; activeSection = 'forum'">COC</a>
-                <a href="{% url 'website:resources' %}" class="font-medium py-2 hover:text-django-teal transition"
-                    @click="mobileMenuOpen = false; activeSection = 'resources'">Resources</a>
-                <a href="https://www.pythonnamibia.org/" class="font-medium py-2 hover:text-django-teal transition"
-                    @click="mobileMenuOpen = false; activeSection = 'resources'">PYNAM</a>
-                <a href="https://na.pycon.org/" class="font-medium py-2 hover:text-django-teal transition"
-                    @click="mobileMenuOpen = false; activeSection = 'resources'">PyCon Namibia</a>
-
+        <div x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false" class="md:hidden bg-white shadow-lg" x-transition>
+            <div class="container mx-auto px-6 py-4 flex flex-col space-y-3">
+                <a href="{% url 'website:home' %}" class="py-2 hover:text-django-teal transition">Home</a>
+                <a href="{% url 'website:about' %}" class="py-2 hover:text-django-teal transition">About</a>
+                <a href="{% url 'website:coc' %}" class="py-2 hover:text-django-teal transition">COC</a>
+                <a href="{% url 'website:resources' %}" class="py-2 hover:text-django-teal transition">Resources</a>
+                <a href="https://www.pythonnamibia.org/" class="py-2 hover:text-django-teal transition">PYNAM</a>
+                <a href="https://na.pycon.org/" class="py-2 hover:text-django-teal transition">PyCon Namibia</a>
             </div>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main>
-        {% block content %}
-        {% endblock %}
+    <main class="mt-8">
+        {% block content %}{% endblock %}
     </main>
 
-    <footer class="bg-gradient-to-br from-django-green to-django-light-green text-white py-10">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4 flex items-center">
-                        <i class="fab fa-python mr-2"></i> Django Namibia
-                    </h3>
-                    <p class="text-gray-300">The official community for Django developers in Namibia.</p>
-                </div>
-
-                <div>
-                    <h4 class="font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="{% url 'website:home' %}" class="text-gray-300 hover:text-white transition">Home</a></li>
-                        <li><a href="{% url 'website:about' %}" class="text-gray-300 hover:text-white transition">About</a></li>
-                        <li><a href="{% url "website:coc" %}" class="text-gray-300 hover:text-white transition">COC</a></li>
-                        <li><a href="{% url 'website:resources' %}" class="text-gray-300 hover:text-white transition">Resources</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="font-semibold mb-4">Django Resources</h4>
-                    <ul class="space-y-2">
-                        <li><a href="https://www.djangoproject.com" target="_blank" class="text-gray-300 hover:text-white transition">Django Official</a></li>
-                        <li><a href="https://docs.djangoproject.com" target="_blank" class="text-gray-300 hover:text-white transition">Django Docs</a></li>
-                        <li><a href="https://djangopackages.org" target="_blank" class="text-gray-300 hover:text-white transition">Django Packages</a></li>
-                        <li><a href="https://forum.djangoproject.com" target="_blank" class="text-gray-300 hover:text-white transition">Django Forum</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="font-semibold mb-4">Connect With Us</h4>
-                    <div class="flex flex-wrap gap-4">
-                        
-                        <a href="https://x.com/djangonamibia" 
-                           class="text-gray-300 hover:text-white text-xl transition transform hover:scale-110"
-                           aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        
-                        <a href="https://discord.gg/QwpARXXD" 
-                           class="text-gray-300 hover:text-white text-xl transition transform hover:scale-110"
-                           aria-label="Discord">
-                            <i class="fab fa-discord"></i>
-                        </a>
-                        <a href="https://mastodon.social/@yourhandle" 
-                           class="text-gray-300 hover:text-white text-xl transition transform hover:scale-110"
-                           aria-label="Mastodon">
-                            <i class="fab fa-mastodon"></i>
-                        </a>
-                    </div>
-                    <p class="text-xs text-gray-400 mt-2">Join our developer community</p>
-                </div>
+    <!-- Footer -->
+    <footer class="bg-django-green text-white py-12">
+        <div class="container mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="text-xl font-bold mb-4 flex items-center"><i class="fab fa-python mr-2"></i> Django Namibia</h3>
+                <p class="text-gray-200">Official community for Django developers in Namibia. Learn, share, and grow!</p>
             </div>
-
-            <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
-             
-                <p> Website developed by Ngazetungue Muheue • Growing with community love ❤️</p>
-                <p>&copy; {% now "Y" %} Django Namibia Community. All rights reserved.</p>
-                <p class="text-xs mt-2">Django is a registered trademark of the Django Software Foundation.</p>
+            <div>
+                <h4 class="font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="{% url 'website:home' %}" class="hover:text-django-teal transition">Home</a></li>
+                    <li><a href="{% url 'website:about' %}" class="hover:text-django-teal transition">About</a></li>
+                    <li><a href="{% url 'website:coc' %}" class="hover:text-django-teal transition">COC</a></li>
+                    <li><a href="{% url 'website:resources' %}" class="hover:text-django-teal transition">Resources</a></li>
+                </ul>
             </div>
+            <div>
+                <h4 class="font-semibold mb-4">Django Resources</h4>
+                <ul class="space-y-2">
+                    <li><a href="https://www.djangoproject.com" target="_blank" class="hover:text-django-teal transition">Django Official</a></li>
+                    <li><a href="https://docs.djangoproject.com" target="_blank" class="hover:text-django-teal transition">Django Docs</a></li>
+                    <li><a href="https://djangopackages.org" target="_blank" class="hover:text-django-teal transition">Django Packages</a></li>
+                    <li><a href="https://forum.djangoproject.com" target="_blank" class="hover:text-django-teal transition">Django Forum</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-4">Connect With Us</h4>
+                <div class="flex space-x-4 text-xl">
+                    <a href="https://x.com/djangonamibia" class="hover:text-django-teal transition transform hover:scale-110"><i class="fab fa-twitter"></i></a>
+                    <a href="https://discord.gg/QwpARXXD" class="hover:text-django-teal transition transform hover:scale-110"><i class="fab fa-discord"></i></a>
+                    <a href="https://mastodon.social/@yourhandle" class="hover:text-django-teal transition transform hover:scale-110"><i class="fab fa-mastodon"></i></a>
+                </div>
+                <p class="text-xs text-gray-300 mt-2">Join our developer community</p>
+            </div>
+        </div>
+
+        <div class="border-t border-django-light-green mt-10 pt-6 text-center text-gray-300">
+            <p>Website developed by Ngazetungue Muheue • Growing with community love ❤️</p>
+            <p>&copy; {% now "Y" %} Django Namibia Community. All rights reserved.</p>
+            <p class="text-xs mt-2">Django is a registered trademark of the <a href="https://www.djangoproject.com/foundation/"> Django Software Foundation.</a></p>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
     <div class="fixed bottom-6 right-6 z-50">
-        <a href="#"
-            class="bg-django-teal text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-teal-700 transition"
-            data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+        <a href="#" class="bg-django-teal text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-teal-700 transition">
             <i class="fas fa-arrow-up"></i>
         </a>
     </div>

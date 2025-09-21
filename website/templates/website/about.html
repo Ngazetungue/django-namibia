@@ -2,278 +2,199 @@
 {% load static %}
 {% block content %}
 
-    <!-- Hero Section -->
-    <section class="relative bg-gradient-to-r from-django-green to-django-light-green text-white py-20">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6" data-aos="fade-up">About Django Namibia</h1>
-            <p class="text-xl mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                The official community for Django developers in Namibia, fostering collaboration and knowledge sharing.
-            </p>
-        </div>
-    </section>
+<!-- Hero Section -->
+<section class="relative bg-gradient-to-r from-django-green to-django-light-green text-white py-24">
+    <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-semibold mb-6" data-aos="fade-up">About Django Namibia</h1>
+        <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-white/90" data-aos="fade-up" data-aos-delay="100">
+            The official community for Django developers in Namibia, fostering collaboration, mentorship, and knowledge sharing.
+        </p>
+    </div>
+</section>
 
-    <!-- Our Story Section -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl font-bold text-center text-django-green mb-12" data-aos="fade-up">Our Story</h2>
-
-                <div class="grid md:grid-cols-2 gap-8 items-center mb-16">
-                    <div class="order-1 md:order-1" data-aos="fade-right">
-                        <img src="{% static "website/images/day/4.jpg" %}"
-                            alt="Django Namibia meetup" class="rounded-lg shadow-xl w-full h-auto">
-                    </div>
-                    <div class="order-2 md:order-2" data-aos="fade-left">
-                        <h3 class="text-2xl font-semibold text-django-green mb-4">How It All Began</h3>
-                        <p class="text-gray-700 mb-4">
-                            Django Namibia was founded in 2016 by a group of passionate developers under the umbrella of the Python Software Association of Namibia (PyNAM). We recognized the need for a dedicated Django community in Namibia.
-                        </p>
-                        <p class="text-gray-700">
-                            As an official working group of PyNAM, what started as informal meetups in Windhoek has grown into a national community with members across the country. Our first official event brought together 30 developers, and since then we've been organizing workshops, hackathons, and networking events to grow the Django ecosystem in Namibia.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="bg-gray-50 border-l-4 border-django-teal p-6 rounded-r-lg mb-16" data-aos="fade-up">
-                    <div class="flex items-start">
-                        <div class="text-django-teal text-2xl mr-4">
-                            <i class="fas fa-network-wired"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-semibold text-django-green mb-2">Our PyNAM Affiliation</h4>
-                            <p class="text-gray-700">
-                                Django Namibia is an initiative of the Python Software Association of Namibia (PyNAM), established to serve as the country's official Django community. PYNAM is the official body representing Python developers in Namibia. 
-                                This affiliation connects us with the broader Python community while allowing us to focus specifically on Django development.
-                            </p>
-                            <a href="https://www.pythonnamibia.org/" target="_blank" class="inline-block mt-3 text-django-teal hover:underline font-medium">
-                                Learn more about PyNAM →
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="order-1 md:order-2" data-aos="fade-right">
-                        <img src="{% static "website/images/day/5.jpg" %}"
-                            alt="Django workshop" class="rounded-lg shadow-xl w-full h-auto">
-                    </div>
-                    <div class="order-2 md:order-1" data-aos="fade-left">
-                        <h3 class="text-2xl font-semibold text-django-green mb-4">Our Growth</h3>
-                        <p class="text-gray-700 mb-4">
-                            With the support of PyNAM, we've grown to over 200+ members across Namibia. Our community includes beginners learning web development, experienced Django developers, and companies building products with Django.
-                        </p>
-                        <p class="text-gray-700">
-                            Through our PyNAM affiliation, we've partnered with local tech companies, educational institutions, and the global Django community to bring world-class resources and opportunities to Namibian developers.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mission and Values Section -->
-    <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl font-bold text-django-green mb-4">Our Core Values</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    The principles that guide our community and shape everything we do
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <!-- Community Card -->
-                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition" 
-                    data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-django-teal text-4xl mb-4">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-django-green">Inclusive Community</h3>
-                    <p class="text-gray-700 mb-4">
-                        We welcome developers at all skill levels and create spaces where everyone can learn and grow together.
-                    </p>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li class="flex items-start">
-                            <svg class="h-4 w-4 text-django-teal mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                            </svg>
-                            <span>Beginner-friendly events</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="h-4 w-4 text-django-teal mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                            </svg>
-                            <span>Mentorship programs</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Education Card -->
-                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition" 
-                    data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-django-teal text-4xl mb-4">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-django-green">Practical Learning</h3>
-                    <p class="text-gray-700 mb-4">
-                        We focus on hands-on training that helps developers build real-world Django skills.
-                    </p>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li class="flex items-start">
-                            <svg class="h-4 w-4 text-django-teal mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                            </svg>
-                            <span>Project-based workshops</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="h-4 w-4 text-django-teal mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                            </svg>
-                            <span>Career-focused training</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Collaboration Card -->
-                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition" 
-                    data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-django-teal text-4xl mb-4">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-django-green">Strategic Partnerships</h3>
-                    <p class="text-gray-700 mb-4">
-                        We connect developers with companies and schools to strengthen Namibia's tech ecosystem.
-                    </p>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li class="flex items-start">
-                            <svg class="h-4 w-4 text-django-teal mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                            </svg>
-                            <span>Industry collaborations</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="h-4 w-4 text-django-teal mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                            </svg>
-                            <span>Education partnerships</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Mission Statement -->
-            <div class="mt-16 max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-sm" data-aos="fade-up">
-                <h3 class="text-2xl font-semibold text-center text-django-green mb-6">Our Mission</h3>
-                <p class="text-gray-700 text-center text-lg leading-relaxed">
-                    "To develop Namibia's Django community by providing accessible education, creating professional opportunities, 
-                    and fostering collaborations that benefit both developers and the nation's growing tech industry."
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-django-green mb-12" data-aos="fade-up">Meet Our Core Team
-            </h2>
-
-            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden border-4 border-django-teal">
-                        <img src="{% static 'website/images/team/muheue.jpg' %}" alt="Ngazetungue Muheue"
-                            class="w-full h-full object-cover">
-                    </div>
-                    <h3 class="text-xl font-semibold text-django-green">Ngazetungue Muheue</h3>
-                    <p class="text-django-teal mb-2">Co-founder & Community Lead</p>
-                    <p class="text-gray-600 text-sm mb-4">
-                        Software Engineer with 10+ years advancing open source software globally• 
-                    </p>
-                    
-                    <div class="flex justify-center space-x-3">
-
-                        <a href="https://github.com/Ngazetungue" target="_blank" 
-                           class="text-django-green hover:text-django-teal transition"
-                           aria-label="GitHub">
-                            <i class="fab fa-github text-xl"></i>
-                        </a>
-                        
-                        <a href="https://twitter.com/muheuenga" target="_blank" 
-                           class="text-django-green hover:text-django-teal transition"
-                           aria-label="Twitter">
-                            <i class="fab fa-twitter text-xl"></i>
-                        </a>
-                        
-                        <a href="https://www.linkedin.com/in/ngazetungue-muheue/" target="_blank" 
-                           class="text-django-green hover:text-django-teal transition"
-                           aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in text-xl"></i>
-                        </a>
-                        
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-12 text-center" data-aos="fade-up">
-                <a href=""
-                    class="inline-block bg-django-green hover:bg-green-900 text-white font-medium py-2 px-6 rounded-lg transition">
-                    We are looking for leaders
-                </a>
-            </div>
-        </div>
-    </section>
-
-<!-- Community Impact Section -->
-<section class="py-20 bg-gray-50">
+<!-- Our Story Section -->
+<section class="py-20 bg-white">
     <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center text-django-green mb-12" data-aos="fade-up">Our Community Impact</h2>
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-medium text-center text-django-green mb-12" data-aos="fade-up">Our Story</h2>
 
-        <div class="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto text-center">
-            <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="100">
-                <div class="text-4xl font-bold text-django-teal mb-2">200+</div>
-                <div class="text-gray-700">Members</div>
+            <div class="grid md:grid-cols-2 gap-10 items-center mb-16">
+                <div class="order-1" data-aos="fade-right">
+                    <img src="{% static 'website/images/day/4.jpg' %}" alt="Django Namibia meetup"
+                        class="rounded-xl shadow-lg w-full h-auto">
+                </div>
+                <div class="order-2" data-aos="fade-left">
+                    <h3 class="text-2xl font-semibold text-django-green mb-4">How It All Began</h3>
+                    <p class="text-gray-700 mb-4">
+                        Django Namibia was founded in 2016 by a group of passionate developers under the umbrella of the Python Software Association of Namibia (PyNAM). We recognized the need for a dedicated Django community in Namibia.
+                    </p>
+                    <p class="text-gray-700">
+                        What started as informal meetups in Windhoek has grown into a national community with members across the country. Our first official event brought together 30 developers, and since then we've been organizing workshops, hackathons, and networking events to grow the Django ecosystem in Namibia.
+                    </p>
+                </div>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
-                <div class="text-4xl font-bold text-django-teal mb-2">20+</div>
-                <div class="text-gray-700">Events Held</div>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="300">
-                <div class="text-4xl font-bold text-django-teal mb-2">10</div>
-                <div class="text-gray-700">Projects Created</div>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="400">
-                <div class="text-4xl font-bold text-django-teal mb-2">2</div>
-                <div class="text-gray-700">Partner Organisations</div>
-            </div>
-        </div>
 
-        <div class="mt-16 max-w-4xl mx-auto">
-            <h3 class="text-2xl font-semibold text-center text-django-green mb-8" data-aos="fade-up">Success Stories</h3>
-
-            <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up">
+            <div class="bg-gray-50 border-l-4 border-django-teal p-6 rounded-r-xl mb-16" data-aos="fade-up">
                 <div class="flex items-start">
                     <div class="text-django-teal text-2xl mr-4 mt-1">
-                        <i class="fas fa-quote-left"></i>
+                        <i class="fas fa-network-wired"></i>
                     </div>
                     <div>
-                        <p class="text-gray-700 mb-4">
-                            "Joining Django Namibia transformed my career. Through the workshops and mentorship,
-                            I went from a beginner to landing my first job as a Django developer within a year."
+                        <h4 class="text-xl font-semibold text-django-green mb-2">Our PyNAM Affiliation</h4>
+                        <p class="text-gray-700">
+                            Django Namibia is an initiative of the Python Software Association of Namibia (PyNAM), serving as the country's official Django community. PyNAM connects us with the broader Python community while letting us focus on Django development.
                         </p>
-                        <div class="flex items-center">
-                            <div class="w-12 h-12 rounded-full bg-django-teal text-white flex items-center justify-center mr-3">
-                                <span class="font-medium text-lg">JV</span>
-                            </div>
-                            <div>
-                                <div class="font-medium text-django-green">John Van Der Merwe</div>
-                                <div class="text-sm text-gray-600">Junior Developer</div>
-                            </div>
-                        </div>
+                        <a href="https://www.pythonnamibia.org/" target="_blank" 
+                           class="inline-block mt-3 text-django-teal hover:underline font-medium">
+                            Learn more about PyNAM →
+                        </a>
                     </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div class="order-2 md:order-1" data-aos="fade-left">
+                    <img src="{% static 'website/images/day/5.jpg' %}" alt="Django workshop"
+                        class="rounded-xl shadow-lg w-full h-auto">
+                </div>
+                <div class="order-1 md:order-2" data-aos="fade-right">
+                    <h3 class="text-2xl font-semibold text-django-green mb-4">Our Growth</h3>
+                    <p class="text-gray-700 mb-4">
+                        With PyNAM support, we've grown to 200+ members across Namibia, including beginners, experienced Django developers, and companies building products with Django.
+                    </p>
+                    <p class="text-gray-700">
+                        We've partnered with local tech companies, educational institutions, and the global Django community to bring world-class resources and opportunities to Namibian developers.
+                    </p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-    {% endblock content %}
+<!-- Core Values Section -->
+<section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl font-semibold text-django-green mb-4">Our Core Values</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Principles guiding our community and shaping everything we do
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="100">
+                <div class="text-django-teal text-4xl mb-4">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-django-green">Inclusive Community</h3>
+                <p class="text-gray-700 mb-4">We welcome developers at all skill levels and create spaces where everyone can learn and grow together.</p>
+                <ul class="text-sm text-gray-600 space-y-2">
+                    <li class="flex items-start">
+                        <span class="text-django-teal mr-2">✓</span> Beginner-friendly events
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-django-teal mr-2">✓</span> Mentorship programs
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="200">
+                <div class="text-django-teal text-4xl mb-4">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-django-green">Practical Learning</h3>
+                <p class="text-gray-700 mb-4">Hands-on training that helps developers build real-world Django skills.</p>
+                <ul class="text-sm text-gray-600 space-y-2">
+                    <li class="flex items-start">
+                        <span class="text-django-teal mr-2">✓</span> Project-based workshops
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-django-teal mr-2">✓</span> Career-focused training
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="300">
+                <div class="text-django-teal text-4xl mb-4">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-django-green">Strategic Partnerships</h3>
+                <p class="text-gray-700 mb-4">We connect developers with companies and schools to strengthen Namibia's tech ecosystem.</p>
+                <ul class="text-sm text-gray-600 space-y-2">
+                    <li class="flex items-start">
+                        <span class="text-django-teal mr-2">✓</span> Industry collaborations
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-django-teal mr-2">✓</span> Education partnerships
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-16 max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-sm" data-aos="fade-up">
+            <h3 class="text-2xl font-semibold text-center text-django-green mb-6">Our Mission</h3>
+            <p class="text-gray-700 text-center text-lg leading-relaxed">
+                "To develop Namibia's Django community by providing accessible education, creating professional opportunities, 
+                and fostering collaborations that benefit both developers and the nation's growing tech industry."
+            </p>
+        </div>
+    </div>
+</section>
+<!-- Community Engagement Section -->
+<section class="py-16 bg-white text-gray-900">
+    <div class="container mx-auto px-4 text-center">
+        <div class="max-w-4xl mx-auto" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-6 text-django-green">Join Our Developer Community</h2>
+            <p class="text-xl mb-10">
+                Connect with Django developers across Namibia through these platforms:
+            </p>
+            <div class="flex flex-wrap justify-center gap-6 mb-12">
+                <a href="https://mastodon.social/@yourhandle" target="_blank"
+                   class="bg-purple-100 text-django-green hover:bg-django-green hover:text-white w-14 h-14 rounded-full flex items-center justify-center transition transform hover:scale-110 shadow-md">
+                    <i class="fab fa-mastodon text-3xl"></i>
+                    <span class="sr-only">Mastodon</span>
+                </a>
+
+                <a href="https://twitter.com/djangonamibia" target="_blank"
+                   class="bg-blue-100 text-django-green hover:bg-django-green hover:text-white w-14 h-14 rounded-full flex items-center justify-center transition transform hover:scale-110 shadow-md">
+                    <i class="fab fa-twitter text-3xl"></i>
+                    <span class="sr-only">Twitter/X</span>
+                </a>
+
+                <a href="https://discord.gg/QwpARXXD" target="_blank"
+                   class="bg-indigo-100 text-django-green hover:bg-django-green hover:text-white w-14 h-14 rounded-full flex items-center justify-center transition transform hover:scale-110 shadow-md">
+                    <i class="fab fa-discord text-3xl"></i>
+                    <span class="sr-only">Discord</span>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 text-left">
+                <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition">
+                    <h3 class="font-semibold mb-2 flex items-center text-django-green">
+                        <i class="fab fa-discord mr-2"></i> Discord
+                    </h3>
+                    <p class="text-sm opacity-90">Real-time discussions and contributions with local developers.</p>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition">
+                    <h3 class="font-semibold mb-2 flex items-center text-django-green">
+                        <i class="fab fa-mastodon mr-2"></i> Mastodon
+                    </h3>
+                    <p class="text-sm opacity-90">Announcements, updates, and open conversations.</p>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-md transition">
+                    <h3 class="font-semibold mb-2 flex items-center text-django-green">
+                        <i class="fab fa-twitter mr-2"></i> Twitter/X
+                    </h3>
+                    <p class="text-sm opacity-90">Announcements, updates, and open conversations.</p>
+                </div>
+            </div>
+            <p class="text-sm mt-12 opacity-80 max-w-2xl mx-auto">
+                <i class="fas fa-info-circle mr-1"></i> Join where you're most active! All platforms are regularly moderated.
+            </p>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

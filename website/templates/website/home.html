@@ -2,573 +2,420 @@
 {% load static %}
 {% block content %}
 
-{% load static %}
-
-{% load static %}
-
-<!-- Hero Section with Slider -->
-<section id="home" class="relative overflow-hidden min-h-screen flex items-center">
-    <!-- Background slider -->
-    <div class="absolute inset-0" x-data="{
-        slides: [
-            '{% static 'website/images/hero/slide1.JPG' %}',
-            '{% static 'website/images/hero/slide2.jpg' %}',
-            '{% static 'website/images/hero/slide3.JPG' %}'
-        ],
-        currentSlide: 0,
-        init() {
-            setInterval(() => {
-                this.currentSlide = (this.currentSlide + 1) % this.slides.length;
-            }, 5000);
-        }
-    }">
-        <template x-for="(slide, index) in slides" :key="index">
-            <div 
-                x-show="currentSlide === index"
-                x-transition:enter="transition ease-out duration-1000"
-                x-transition:enter-start="opacity-0"
-                x-transition:enter-end="opacity-100"
-                x-transition:leave="transition ease-in duration-1000"
-                x-transition:leave-start="opacity-100"
-                x-transition:leave-end="opacity-0"
-                class="absolute inset-0 w-full h-full"
-            >
-                <!-- Image with black overlay -->
-                <div class="relative w-full h-full">
-                    <img 
-                        :src="slide" 
-                        :alt="'Django Community image ' + (index + 1)" 
-                        class="w-full h-full object-cover"
-                    >
-                    <!-- Black overlay with 50% opacity -->
-                    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-                    <!-- Your existing gradient overlay -->
-                    <div class="absolute inset-0 bg-gradient-to-r from-django-dark-green/90 to-django-teal/90"></div>
-                </div>
-            </div>
-        </template>
+<!-- Hero Section -->
+<section id="home" class="relative overflow-hidden min-h-screen flex items-center justify-center text-center bg-[#092E20]">
+    <div class="absolute inset-0 overflow-hidden opacity-10">
+        <div class="absolute -top-24 -left-24 w-64 h-64 rounded-full bg-white opacity-20"></div>
+        <div class="absolute top-1/4 right-0 w-48 h-48 rounded-full bg-green-600 opacity-20"></div>
+        <div class="absolute bottom-0 left-1/3 w-64 h-64 rounded-full bg-white opacity-20"></div>
     </div>
-
-    <!-- Hero content -->
-    <div class="container mx-auto px-4 relative z-10 py-20">
-        <div class="flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white">Django Namibia Community</h1>
-                <p class="text-xl mb-8 text-white">Building web applications with Django across Namibia. Join our growing community
-                    of developers.</p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#join"
-                        class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-lg text-center transition">
-                        Join Our Community
-                    </a>
-                    <a href="#events"
-                        class="bg-transparent hover:bg-white hover:bg-opacity-20 border-2 border-white font-bold py-3 px-6 rounded-lg text-center transition text-white">
-                        Upcoming Events
-                    </a>
-                </div>
+    <div class="container mx-auto px-6 relative z-10 py-20 flex flex-col items-center">
+        <h1 class="text-6xl md:text-7xl lg:text-8xl font-extrabold mb-10 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-green-200 to-white drop-shadow-2xl">
+            Django Namibia
+        </h1>
+        <p class="text-2xl md:text-3xl lg:text-4xl mb-12 text-white/90 max-w-3xl font-light leading-relaxed">
+            Building the Future with Django — Join our growing community of developers building powerful web applications across Namibia.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+            <a href="#join"
+               class="bg-[#09A676] hover:bg-[#077A5B] text-white font-semibold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition flex items-center justify-center text-lg">
+                <i class="fab fa-discord mr-3"></i> Join Our Community
+            </a>
+            <a href="#events"
+               class="border-2 border-white text-white hover:bg-white hover:text-green-900 font-semibold py-4 px-8 rounded-lg transition flex items-center justify-center text-lg">
+                <i class="fas fa-calendar-alt mr-3"></i> Upcoming Events
+            </a>
+        </div>
+        <div class="flex flex-col items-center space-y-5">
+            <div class="flex -space-x-4">
+                <div class="w-12 h-12 rounded-full border-2 border-white bg-green-500"></div>
+                <div class="w-12 h-12 rounded-full border-2 border-white bg-green-700"></div>
+                <div class="w-12 h-12 rounded-full border-2 border-white bg-teal-500"></div>
             </div>
-            <div class="md:w-1/2 flex justify-center">
-                <div class="relative w-64 h-64 md:w-80 md:h-80">
-                    <div class="absolute inset-0 bg-green-500 rounded-full opacity-30 animate-pulse"></div>
-                    <div class="absolute inset-8 bg-teal-600 rounded-full opacity-30 animate-pulse delay-100"></div>
-                    <div class="absolute inset-16 bg-green-400 rounded-full opacity-30 animate-pulse delay-200"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <i class="fab fa-python text-8xl md:text-9xl text-white animate-spin-slow"></i>
-                    </div>
-                </div>
-            </div>
+            <p class="text-white/80 text-lg leading-relaxed">
+                Join <span class="font-bold text-white">100+</span> developers in our community
+            </p>
         </div>
     </div>
-    
-    <!-- Slider controls -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
-        <template x-for="(slide, index) in slides" :key="index">
-            <button 
-                @click="currentSlide = index"
-                class="w-3 h-3 rounded-full transition-all duration-300"
-                :class="currentSlide === index ? 'bg-white w-6' : 'bg-white bg-opacity-50'"
-                :aria-label="'Go to slide ' + (index + 1)"
-            ></button>
-        </template>
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2">
+        <div class="animate-bounce">
+            <i class="fas fa-chevron-down text-white text-3xl"></i>
+        </div>
     </div>
 </section>
-<!-- About Django -->
-<section id="about" class="py-20 bg-white">
+
+<!-- About Django Namibia Section -->
+<section id="about" class="relative py-20 bg-white text-[#092E20]">
     <div class="container mx-auto px-4">
-        <!-- Django Introduction -->
-        <div class="max-w-4xl mx-auto mb-16">
-            <h2 class="text-3xl font-bold text-center text-django-green mb-12" data-aos="fade-up">What is Django?</h2>
-            
-            <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden" data-aos="fade-up">
-                <div class="p-6 md:p-8">
-                    <p class="text-lg mb-6 text-gray-700">
-                        Django is a high-level Python web framework that enables rapid development of secure and maintainable websites or web based applications. 
-                        Built by experienced developers, it takes care of much of the hassle of web development.
-                    </p>
-                    
-                    <div class="grid md:grid-cols-2 gap-8 mb-8">
-                        <div>
-                            <h3 class="text-xl font-semibold mb-4 text-django-green">Key Features:</h3>
-                            <ul class="space-y-3">
-                                <li class="flex items-start">
-                                    <span class="text-django-teal mr-2">✓</span>
-                                    <span>Batteries-included framework</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-django-teal mr-2">✓</span>
-                                    <span>ORM for database interactions</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-django-teal mr-2">✓</span>
-                                    <span>Built-in admin interface</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-django-teal mr-2">✓</span>
-                                    <span>Secure by default</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-django-teal mr-2">✓</span>
-                                    <span>Scalable architecture</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold mb-4 text-django-green">Why Django in Namibia?</h3>
-                            <ul class="space-y-3">
-                                <li class="flex items-start">
-                                    <span class="text-django-teal mr-2">✓</span>
-                                    <span>Growing tech ecosystem</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-django-teal mr-2">✓</span>
-                                    <span>Strong Python community</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-django-teal mr-2">✓</span>
-                                    <span>Ideal for local business solutions</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-django-teal mr-2">✓</span>
-                                    <span>Great for government and NGO projects</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-medium mb-4 text-[#092E20]">About Django Namibia</h2>
+        <p class="text-lg md:text-xl text-[#06432C] max-w-2xl mx-auto leading-relaxed">
+          Django Namibia is a welcoming community of web developers, enthusiasts, and innovators who collaborate to build modern web applications using Django and Python. We support developers at all skill levels across Namibia.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 text-center">
+        <div class="p-6 bg-[#E6F0EC] rounded-xl shadow-md hover:shadow-lg transition">
+          <i class="fas fa-users text-[#092E20] text-3xl mb-4"></i>
+          <h3 class="text-xl font-medium mb-2 text-[#092E20]">Community Driven</h3>
+          <p class="text-[#06432C] leading-relaxed">
+            Connect with passionate developers, share knowledge, collaborate on projects, and grow your Django and Python skills.
+          </p>
         </div>
-
-        <!-- Django Namibia Community Info -->
-        <h2 class="text-3xl font-bold text-center text-django-green mb-12" data-aos="fade-up">Django Namibia</h2>
-
-        <div class="grid md:grid-cols-2 gap-8 mb-16">
-            <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition" data-aos="fade-right"
-                data-aos-delay="100">
-                <div class="text-django-green text-4xl mb-4">
-                    <i class="fas fa-users"></i>
-                </div>
-                <h3 class="text-xl font-semibold mb-3 text-django-light-green">Our Community</h3>
-                <p class="text-gray-700">We are web developers across Namibia who use Django to build powerful,
-                    scalable web applications.</p>
-            </div>
-
-            <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition" data-aos="fade-left"
-                data-aos-delay="100">
-                <div class="text-django-teal text-4xl mb-4">
-                    <i class="fas fa-bullseye"></i>
-                </div>
-                <h3 class="text-xl font-semibold mb-3 text-django-light-green">Our Mission</h3>
-                <p class="text-gray-700">To promote Django framework in Namibia through education, collaboration,
-                    and real-world problem solving.</p>
-            </div>
+        <div class="p-6 bg-[#E6F0EC] rounded-xl shadow-md hover:shadow-lg transition">
+          <i class="fas fa-chalkboard-teacher text-[#092E20] text-3xl mb-4"></i>
+          <h3 class="text-xl font-medium mb-2 text-[#092E20]">Learning & Workshops</h3>
+          <p class="text-[#06432C] leading-relaxed">
+            Participate in workshops, talks, and training sessions from experts to enhance your development skills and solve real-world problems.
+          </p>
         </div>
-
-        <!-- Django Features Section -->
-        <div class="mt-16" data-aos="fade-up">
-            <h3 class="text-2xl font-semibold text-center text-django-green mb-8">Why Choose Django?</h3>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-django-teal hover:shadow-md transition">
-                    <div class="text-django-teal text-2xl mb-3">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h4 class="font-semibold mb-2">Rapid Development</h4>
-                    <p class="text-gray-700 text-sm">Django's "batteries-included" approach means you can focus on
-                        writing your app without needing to reinvent the wheel.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-django-teal hover:shadow-md transition">
-                    <div class="text-django-teal text-2xl mb-3">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h4 class="font-semibold mb-2">Security</h4>
-                    <p class="text-gray-700 text-sm">Django takes security seriously and helps developers avoid many
-                        common security mistakes.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-django-teal hover:shadow-md transition">
-                    <div class="text-django-teal text-2xl mb-3">
-                        <i class="fas fa-expand"></i>
-                    </div>
-                    <h4 class="font-semibold mb-2">Scalability</h4>
-                    <p class="text-gray-700 text-sm">Some of the busiest sites on the web leverage Django's ability
-                        to quickly and flexibly scale.</p>
-                </div>
-            </div>
+        <div class="p-6 bg-[#E6F0EC] rounded-xl shadow-md hover:shadow-lg transition">
+          <i class="fas fa-lightbulb text-[#092E20] text-3xl mb-4"></i>
+          <h3 class="text-xl font-medium mb-2 text-[#092E20]">Opportunities</h3>
+          <p class="text-[#06432C] leading-relaxed">
+            Discover career opportunities, connect with industry leaders, and collaborate on impactful projects locally and globally.
+          </p>
         </div>
+      </div>
+      <div class="mt-16 text-center">
+        <a href="{% url "website:about" %}"
+          class="bg-[#092E20] text-white font-medium py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition text-lg inline-flex items-center justify-center">
+          Learn More About Django Namibia 
+          <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+           
+<!-- About Django Framework Section -->
+<section id="about" class="py-20 bg-white text-[#092E20]">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto mb-16 text-center">
+        <h2 class="text-4xl md:text-5xl font-medium mb-6 text-[#092E20]">What is Django?</h2>
+        <p class="text-lg md:text-xl text-[#06432C] leading-relaxed">
+          Django is a high-level Python web framework that enables rapid development of secure and maintainable web applications. 
+          Built by experienced developers, it takes care of much of the hassle of web development so you can focus on building your project.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8 mb-16">
+        <div class="bg-[#E6F0EC] rounded-xl shadow-md p-6 hover:shadow-lg transition">
+          <h3 class="text-2xl font-medium mb-4 text-[#092E20]">Key Features</h3>
+          <ul class="space-y-3 text-[#06432C]">
+            <li class="flex items-start"><span class="text-[#09A676] mr-2">✓</span>Batteries-included framework</li>
+            <li class="flex items-start"><span class="text-[#09A676] mr-2">✓</span>ORM for database interactions</li>
+            <li class="flex items-start"><span class="text-[#09A676] mr-2">✓</span>Built-in admin interface</li>
+            <li class="flex items-start"><span class="text-[#09A676] mr-2">✓</span>Secure by default</li>
+            <li class="flex items-start"><span class="text-[#09A676] mr-2">✓</span>Scalable architecture</li>
+          </ul>
+        </div>
+        <div class="bg-[#E6F0EC] rounded-xl shadow-md p-6 hover:shadow-lg transition">
+          <h3 class="text-2xl font-medium mb-4 text-[#092E20]">Why Django in Namibia?</h3>
+          <ul class="space-y-3 text-[#06432C]">
+            <li class="flex items-start"><span class="text-[#09A676] mr-2">✓</span>Growing tech ecosystem</li>
+            <li class="flex items-start"><span class="text-[#09A676] mr-2">✓</span>Strong Python community</li>
+            <li class="flex items-start"><span class="text-[#09A676] mr-2">✓</span>Ideal for local business solutions</li>
+            <li class="flex items-start"><span class="text-[#09A676] mr-2">✓</span>Great for government and NGO projects</li>
+          </ul>
+        </div>
+      </div>
 
-        <!-- Call to Action -->
-        <div class="text-center mt-12">
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="{% url "website:about" %}" target="_blank"
-                    class="inline-block bg-django-green hover:bg-green-900 text-white font-medium py-3 px-6 rounded-lg transition">
-                    Learn More About Django Namibia
-                </a>
-                <a href="https://docs.djangoproject.com/en/stable/intro/tutorial01/" target="_blank" 
-                    class="inline-block bg-django-teal hover:bg-teal-700 text-white font-medium py-3 px-6 rounded-lg transition">
-                    Start Django Tutorial
-                </a>
+      <div class="text-center mb-16">
+        <h3 class="text-3xl md:text-4xl font-medium mb-8 text-[#092E20]">Why Choose Django?</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-[#E6F0EC] p-6 rounded-xl shadow-md hover:shadow-lg transition border-l-4 border-[#09A676]">
+            <div class="text-[#09A676] text-3xl mb-3"><i class="fas fa-bolt"></i></div>
+            <h4 class="text-xl font-medium mb-2 text-[#092E20]">Rapid Development</h4>
+            <p class="text-[#06432C] text-sm leading-relaxed">
+              Django's "batteries-included" approach allows you to focus on writing your app without reinventing the wheel.
+            </p>
+          </div>
+  
+          <div class="bg-[#E6F0EC] p-6 rounded-xl shadow-md hover:shadow-lg transition border-l-4 border-[#09A676]">
+            <div class="text-[#09A676] text-3xl mb-3"><i class="fas fa-shield-alt"></i></div>
+            <h4 class="text-xl font-medium mb-2 text-[#092E20]">Security</h4>
+            <p class="text-[#06432C] text-sm leading-relaxed">
+              Django helps developers avoid common security mistakes and ensures applications are secure by default.
+            </p>
+          </div>
+  
+          <div class="bg-[#E6F0EC] p-6 rounded-xl shadow-md hover:shadow-lg transition border-l-4 border-[#09A676]">
+            <div class="text-[#09A676] text-3xl mb-3"><i class="fas fa-expand"></i></div>
+            <h4 class="text-xl font-medium mb-2 text-[#092E20]">Scalability</h4>
+            <p class="text-[#06432C] text-sm leading-relaxed">
+              Django is trusted by some of the busiest websites due to its ability to scale quickly and efficiently.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="https://docs.djangoproject.com/en/stable/intro/tutorial01/" target="_blank"
+             class="inline-block bg-[#09A676] hover:bg-[#077A5B] text-white font-medium py-3 px-6 rounded-lg transition">
+            Official Django Tutorial
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+<!-- Django Day @ PyCon Namibia Section -->
+<section id="django-day" class="py-20 bg-white text-[#092E20]">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-medium mb-4 text-[#092E20]">Django Day @ PyCon Namibia</h2>
+        <div class="w-24 h-1 bg-[#09A676] mx-auto mb-6 rounded"></div>
+        <p class="text-lg md:text-xl text-[#06432C] max-w-3xl mx-auto leading-relaxed">
+          Our annual celebration of Django during PyCon Namibia features workshops, talks, and networking opportunities for all skill levels.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+        <div>
+          <div class="relative rounded-xl overflow-hidden shadow-2xl">
+            <img src="{% static 'website/images/day/11.JPG' %}" alt="Django Day attendees"
+                 class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+              <h3 class="text-xl font-medium text-white">Django Day 2025 Highlights</h3>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-2xl md:text-3xl font-medium mb-6 text-[#092E20]">What to Expect</h3>
+          <ul class="space-y-6">
+            <li class="flex items-start">
+              <div class="text-[#09A676] mr-4 mt-1 text-2xl">
+                <i class="fas fa-chalkboard-teacher"></i>
+              </div>
+              <div>
+                <h4 class="font-medium text-lg mb-1 text-[#092E20]">Beginner & Advanced Workshops</h4>
+                <p class="text-[#06432C]">Hands-on sessions for all skill levels.</p>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <div class="text-[#09A676] mr-4 mt-1 text-2xl">
+                <i class="fas fa-microphone"></i>
+              </div>
+              <div>
+                <h4 class="font-medium text-lg mb-1 text-[#092E20]">Lightning Talks</h4>
+                <p class="text-[#06432C]">Quick insights from community members.</p>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <div class="text-[#09A676] mr-4 mt-1 text-2xl">
+                <i class="fas fa-users"></i>
+              </div>
+              <div>
+                <h4 class="font-medium text-lg mb-1 text-[#092E20]">Sprints & Collaboration</h4>
+                <p class="text-[#06432C]">Work on real Django projects together.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+    
+<!-- Community Gallery Section -->
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl md:text-5xl font-medium mb-6 text-[#092E20] text-center">Our Community in Action</h2>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition">
+                <img src="{% static "website/images/community/1.jpg" %}"
+                    alt="Django Namibia meetup"
+                    class="w-full h-48 object-cover hover:scale-105 transition duration-500">
+            </div>
+
+            <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition">
+                <img src="{% static "website/images/community/2.jpg" %}"
+                    alt="Coding workshop" class="w-full h-48 object-cover hover:scale-105 transition duration-500">
+            </div>
+
+            <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition">
+                <img src="{% static "website/images/community/3.jpg" %}"
+                    alt="Group discussion" class="w-full h-48 object-cover hover:scale-105 transition duration-500">
+            </div>
+
+            <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition">
+                <img src="{% static "website/images/community/4.jpg" %}"
+                    alt="Pair programming" class="w-full h-48 object-cover hover:scale-105 transition duration-500">
+            </div>
+
+            <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition">
+                <img src="{% static "website/images/community/5.jpg" %}"
+                    alt="Presentation at meetup"
+                    class="w-full h-48 object-cover hover:scale-105 transition duration-500">
+            </div>
+
+            <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition">
+                <img src="{% static "website/images/community/6.jpg" %}"
+                    alt="Workshop participants"
+                    class="w-full h-48 object-cover hover:scale-105 transition duration-500">
+            </div>
+
+            <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition">
+                <img src="{% static "website/images/community/7.jpg" %}"
+                    alt="Team collaboration"
+                    class="w-full h-48 object-cover hover:scale-105 transition duration-500">
+            </div>
+
+            <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition">
+                <img src="{% static "website/images/community/8.jpg" %}"
+                    alt="Networking event" class="w-full h-48 object-cover hover:scale-105 transition duration-500">
             </div>
         </div>
     </div>
 </section>
-    <!-- Django Day @ PyCon Namibia Section -->
-    <section id="django-day" class="py-20 bg-gradient-to-br from-namibia-blue to-namibia-red text-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4" data-aos="fade-up">Django Day @ PyCon Namibia</h2>
-                <div class="w-24 h-2 bg-django-teal mx-auto mb-6"></div>
-                <p class="text-xl max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                    Our annual celebration of Django during PyCon Namibia featuring workshops, talks, and networking.
-                </p>
+<!-- Events Section -->
+<section id="events" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl md:text-5xl font-medium mb-6 text-[#092E20] text-center">Upcoming Django Events</h2>
+
+        <div class="text-center mt-10">
+            <a href="#"
+                class="inline-block bg-django-green hover:bg-green-900 text-white font-bold py-3 px-6 rounded-lg transition">
+                No Events Available
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Global Django Community Section -->
+<section class="py-24 bg-[#09A676] text-white">
+    <div class="container mx-auto px-6 text-center">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-bold mb-8">
+          Global Django Community
+        </h2>
+        <p class="text-xl md:text-2xl mb-16 text-white/90 leading-relaxed max-w-3xl mx-auto">
+          Django Namibia is part of the worldwide Django community. Connect with thousands of Django developers around the world.
+        </p>
+  
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div class="bg-white/10 p-8 rounded-xl backdrop-blur-lg hover:scale-105 transition-transform shadow-lg">
+            <div class="text-5xl mb-4 text-[#092E20]">
+              <i class="fab fa-discourse"></i>
             </div>
+            <h3 class="text-2xl font-semibold mb-3">Django Forum</h3>
+            <p class="mb-6 text-white/90 leading-relaxed">
+              Official discussion forum for Django developers.
+            </p>
+            <a href="https://forum.djangoproject.com/" target="_blank"
+               class="inline-block bg-[#092E20] hover:bg-[#06432C] text-white font-semibold py-3 px-6 rounded-lg transition">
+              Visit Forum
+            </a>
+          </div>
+  
+          <div class="bg-white/10 p-8 rounded-xl backdrop-blur-lg hover:scale-105 transition-transform shadow-lg">
+            <div class="text-5xl mb-4 text-[#092E20]">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3 class="text-2xl font-semibold mb-3">Django Users</h3>
+            <p class="mb-6 text-white/90 leading-relaxed">
+              Mailing list for Django users worldwide.
+            </p>
+            <a href="https://groups.google.com/g/django-users" target="_blank"
+               class="inline-block bg-[#092E20] hover:bg-[#06432C] text-white font-semibold py-3 px-6 rounded-lg transition">
+              Join Mailing List
+            </a>
+          </div>
+  
+          <div class="bg-white/10 p-8 rounded-xl backdrop-blur-lg hover:scale-105 transition-transform shadow-lg">
+            <div class="text-5xl mb-4 text-[#092E20]">
+              <i class="fas fa-hands-helping"></i>
+            </div>
+            <h3 class="text-2xl font-semibold mb-3">Django Software Foundation</h3>
+            <p class="mb-6 text-white/90 leading-relaxed">
+              Support the organization behind Django.
+            </p>
+            <a href="https://www.djangoproject.com/foundation/" target="_blank"
+               class="inline-block bg-[#092E20] hover:bg-[#06432C] text-white font-semibold py-3 px-6 rounded-lg transition">
+              Learn More
+            </a>
+          </div>
+        </div>
+  
+        <!-- DjangoCon -->
+        <div class="bg-white/20 p-10 rounded-xl backdrop-blur-lg max-w-3xl mx-auto hover:scale-105 transition-transform shadow-xl">
+          <h3 class="text-3xl font-semibold mb-4">DjangoCon</h3>
+          <p class="mb-6 text-white/90 leading-relaxed">
+            The official Django conference happens annually in different locations around the world.
+          </p>
+          <a href="https://www.djangoproject.com/community/local/" target="_blank"
+             class="inline-block bg-[#092E20] hover:bg-[#06432C] text-white font-semibold py-3 px-8 rounded-lg transition">
+            Find Django Events
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
 
-            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
-                <div data-aos="fade-right">
-                    <div class="relative rounded-xl overflow-hidden shadow-2xl">
-                        <img src="{% static "website/images/day/11.JPG" %}"
-                            alt="Django Day attendees"
-                            class="w-full h-auto object-cover transition-transform duration-500 hover:scale-105">
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
-                            <h3 class="text-xl font-bold text-white">Django Day 2025 Highlights</h3>
-                        </div>
-                    </div>
-                </div>
+<!-- Django Namibia Forum Section -->
+<section id="forum" class="py-24 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl md:text-5xl font-medium mb-6 text-[#092E20] text-center">
+            Namibia Community Forum
+        </h2>
 
-                <div data-aos="fade-left" data-aos-delay="200">
-                    <h3 class="text-2xl font-bold mb-4">What to Expect</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <div class="text-django-teal mr-4 mt-1">
-                                <i class="fas fa-chalkboard-teacher text-2xl"></i>
+        <div class="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="md:flex">
+                <div class="md:w-1/2 p-10">
+                    <h3 class="text-2xl md:text-3xl font-bold text-django-green mb-6">
+                        Ask Questions, Share Knowledge
+                    </h3>
+                    <p class="text-gray-700 mb-8 leading-relaxed text-lg">
+                        Our community forum is the perfect place to get help with Django projects, share your knowledge, and connect with other developers.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="text-django-teal text-3xl mt-1">
+                                <i class="fas fa-question-circle"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold">Beginner & Advanced Workshops</h4>
-                                <p class="text-gray-300">Hands-on sessions for all skill levels</p>
+                                <h4 class="font-semibold text-django-green text-lg mb-1">Get Help</h4>
+                                <p class="text-gray-600 text-base leading-relaxed">Stuck on a problem? Our community can help.</p>
                             </div>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="text-django-teal mr-4 mt-1">
-                                <i class="fas fa-microphone text-2xl"></i>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="text-django-teal text-3xl mt-1">
+                                <i class="fas fa-lightbulb"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold">Lightning Talks</h4>
-                                <p class="text-gray-300">Quick insights from community members</p>
+                                <h4 class="font-semibold text-django-green text-lg mb-1">Share Ideas</h4>
+                                <p class="text-gray-600 text-base leading-relaxed">Have a great idea? Share it with the community.</p>
                             </div>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="text-django-teal mr-4 mt-1">
-                                <i class="fas fa-users text-2xl"></i>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="text-django-teal text-3xl mt-1">
+                                <i class="fas fa-code"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold">Sprints & Collaboration</h4>
-                                <p class="text-gray-300">Work on real Django projects together</p>
-                            </div>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-
-            <!-- Past Events Gallery -->
-            <div class="mb-16" data-aos="fade-up">
-                <h3 class="text-2xl font-bold text-center mb-8">Django Day Moments</h3>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <a href="" class="group relative overflow-hidden rounded-lg shadow-md">
-                        <img src="{% static "website/images/day/1.jpg" %}"
-                            alt="Workshop session"
-                            class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
-                    </a>
-                    <a href="#" class="group relative overflow-hidden rounded-lg shadow-md">
-                        <img src="{% static "website/images/day/2.jpg" %}"
-                            alt="Group discussion"
-                            class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
-
-                    </a>
-                    <a href="#" class="group relative overflow-hidden rounded-lg shadow-md">
-                        <img src="{% static "website/images/day/3.jpg" %}"
-                            alt="Coding session"
-                            class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
-
-                    </a>
-                    <a href="#" class="group relative overflow-hidden rounded-lg shadow-md">
-                        <img src="{% static "website/images/day/4.jpg" %}"
-                            alt="Networking"
-                            class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
-
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Events Section -->
-    <section id="events" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-django-green mb-12" data-aos="fade-up">Upcoming Django Events
-            </h2>
-
-            <div class="text-center mt-10" data-aos="fade-up">
-                <a href="#"
-                    class="inline-block bg-django-green hover:bg-green-900 text-white font-bold py-3 px-6 rounded-lg transition">
-                    No Events Available
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Django Community Section -->
-    <section class="py-16 bg-gradient-to-br from-django-green to-django-light-green text-white">
-        <div class="container mx-auto px-4 text-center">
-            <div class="max-w-3xl mx-auto" data-aos="zoom-in">
-                <h2 class="text-3xl font-bold mb-6">Join the Global Django Community</h2>
-                <p class="text-xl mb-8">Django Namibia is part of the worldwide Django community. Connect with thousands
-                    of Django developers around the world.</p>
-
-                <div class="grid md:grid-cols-3 gap-6 mb-10">
-                    <div class="bg-white bg-opacity-10 p-6 rounded-lg backdrop-blur-sm">
-                        <div class="text-4xl mb-4 text-django-teal">
-                            <i class="fab fa-discourse"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3">Django Forum</h3>
-                        <p class="mb-4">Official discussion forum for Django developers</p>
-                        <a href="https://forum.djangoproject.com/" target="_blank"
-                            class="inline-block bg-white text-django-green font-medium py-2 px-4 rounded hover:bg-gray-200 transition">
-                            Visit Forum
-                        </a>
-                    </div>
-
-                    <div class="bg-white bg-opacity-10 p-6 rounded-lg backdrop-blur-sm">
-                        <div class="text-4xl mb-4 text-django-teal">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3">Django Users</h3>
-                        <p class="mb-4">Mailing list for Django users worldwide</p>
-                        <a href="https://groups.google.com/g/django-users" target="_blank"
-                            class="inline-block bg-white text-django-green font-medium py-2 px-4 rounded hover:bg-gray-200 transition">
-                            Join Mailing List
-                        </a>
-                    </div>
-
-                    <div class="bg-white bg-opacity-10 p-6 rounded-lg backdrop-blur-sm">
-                        <div class="text-4xl mb-4 text-django-teal">
-                            <i class="fas fa-hands-helping"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3">Django Software Foundation</h3>
-                        <p class="mb-4">Support the organization behind Django</p>
-                        <a href="https://www.djangoproject.com/foundation/" target="_blank"
-                            class="inline-block bg-white text-django-green font-medium py-2 px-4 rounded hover:bg-gray-200 transition">
-                            Learn More
-                        </a>
-                    </div>
-                </div>
-
-                <div class="bg-white bg-opacity-20 p-6 rounded-lg backdrop-blur-sm max-w-2xl mx-auto">
-                    <h3 class="text-xl font-semibold mb-4">DjangoCon</h3>
-                    <p class="mb-4">The official Django conference happens annually in different locations around the
-                        world.</p>
-                    <a href="https://www.djangoproject.com/community/local/" target="_blank"
-                        class="inline-block bg-white text-django-green font-medium py-2 px-6 rounded-lg hover:bg-gray-200 transition">
-                        Find Django Events
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Community Gallery Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-django-green mb-12" data-aos="fade-up">Our Community in
-                Action</h2>
-
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-
-                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition" data-aos="fade-up">
-                    <img src="{% static "website/images/community/1.jpg" %}"
-                        alt="Django Namibia meetup"
-                        class="w-full h-48 object-cover hover:scale-105 transition duration-500">
-                </div>
-
-                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition" data-aos="fade-up"
-                    data-aos-delay="100">
-                    <img src="{% static "website/images/community/2.jpg" %}"
-                        alt="Coding workshop" class="w-full h-48 object-cover hover:scale-105 transition duration-500">
-                </div>
-
-                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition" data-aos="fade-up"
-                    data-aos-delay="200">
-                    <img src="{% static "website/images/community/3.jpg" %}"
-                        alt="Group discussion" class="w-full h-48 object-cover hover:scale-105 transition duration-500">
-                </div>
-
-                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition" data-aos="fade-up"
-                    data-aos-delay="300">
-                    <img src="{% static "website/images/community/4.jpg" %}"
-                        alt="Pair programming" class="w-full h-48 object-cover hover:scale-105 transition duration-500">
-                </div>
-
-                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition" data-aos="fade-up">
-                    <img src="{% static "website/images/community/5.jpg" %}"
-                        alt="Presentation at meetup"
-                        class="w-full h-48 object-cover hover:scale-105 transition duration-500">
-                </div>
-
-                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition" data-aos="fade-up"
-                    data-aos-delay="100">
-                    <img src="{% static "website/images/community/6.jpg" %}"
-                        alt="Workshop participants"
-                        class="w-full h-48 object-cover hover:scale-105 transition duration-500">
-                </div>
-
-                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition" data-aos="fade-up"
-                    data-aos-delay="200">
-                    <img src="{% static "website/images/community/7.jpg" %}"
-                        alt="Team collaboration"
-                        class="w-full h-48 object-cover hover:scale-105 transition duration-500">
-                </div>
-
-                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition" data-aos="fade-up"
-                    data-aos-delay="300">
-                    <img src="{% static "website/images/community/8.jpg" %}"
-                        alt="Networking event" class="w-full h-48 object-cover hover:scale-105 transition duration-500">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Join Section -->
-    <section id="join" class="py-20 bg-gradient-to-r from-django-light-green to-django-green text-white">
-        <div class="container mx-auto px-4 text-center">
-            <div class="max-w-4xl mx-auto relative">
-
-                <div class="absolute inset-0 opacity-10">
-                    <div class="absolute top-0 left-0 w-32 h-32 rounded-full bg-django-teal opacity-30 animate-pulse">
-                    </div>
-                    <div
-                        class="absolute bottom-0 right-0 w-32 h-32 rounded-full bg-white opacity-30 animate-pulse delay-100">
-                    </div>
-                </div>
-
-                <h2 class="text-3xl font-bold mb-6 relative" data-aos="fade-up">Join Django Namibia</h2>
-                <p class="text-xl mb-10 max-w-3xl mx-auto relative" data-aos="fade-up" data-aos-delay="100">
-                    Connect with fellow Django developers in Namibia and be part of our growing community.
-                </p>
-
-                <div class="flex justify-center max-w-5xl mx-auto relative">
-                    <div class="bg-white bg-opacity-10 p-6 rounded-lg backdrop-blur-sm border border-white border-opacity-20"
-                        data-aos="fade-up" data-aos-delay="200">
-                        <div class="text-4xl mb-4 text-django-teal">
-                            <i class="fab fa-discord"></i>
-                        </div>
-                        <img src="{% static "website/images/partners/pycon-logo.jpg" %}"
-                            alt="Discord community"
-                            class="w-20 h-20 rounded-full mx-auto mb-4 object-cover border-2 border-white">
-                        <h3 class="text-xl font-semibold mb-3">Discord Channel</h3>
-                        <p class="mb-4">Join our Django Namibia Discord workspace for discussions and help.</p>
-                        <a href="https://discord.gg/QwpARXXD"
-                            class="inline-block bg-white text-django-green font-medium py-2 px-4 rounded hover:bg-gray-200 transition">
-                            Join Discord
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Partners Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-django-green mb-12">Our Partners</h2>
-
-            <div class="flex flex-wrap justify-center items-center gap-8">
-                <a href="https://www.pythonnamibia.org/" target="_blank" rel="noopener noreferrer">
-                    <img src="{% static "website/images/partners/pynam.png" %}" alt="PyNam logo"
-                        class="h-16 object-contain opacity-70 hover:opacity-100 transition">
-                </a>
-                <a href="https://na.pycon.org/" target="_blank" rel="noopener noreferrer">
-                    <img src="{% static "website/images/partners/pycon-logo.jpg" %}" alt="PyCon logo"
-                        class="h-16 object-contain opacity-70 hover:opacity-100 transition">
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Forum Section -->
-    <section id="forum" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-django-green mb-12" data-aos="fade-up">Community Forum</h2>
-
-            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up">
-                <div class="md:flex">
-                    <div class="md:w-1/2 p-6">
-                        <h3 class="text-xl font-semibold text-django-green mb-4">Ask Questions, Share Knowledge</h3>
-                        <p class="text-gray-700 mb-6">Our community forum is the perfect place to get help with Django
-                            projects, share your knowledge, and connect with other developers.</p>
-                        <div class="space-y-4">
-                            <div class="flex items-start">
-                                <div class="text-django-teal text-xl mr-3 mt-1">
-                                    <i class="fas fa-question-circle"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-medium text-django-green">Get Help</h4>
-                                    <p class="text-gray-600 text-sm">Stuck on a problem? Our community can help.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="text-django-teal text-xl mr-3 mt-1">
-                                    <i class="fas fa-lightbulb"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-medium text-django-green">Share Ideas</h4>
-                                    <p class="text-gray-600 text-sm">Have a great idea? Share it with the community.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="text-django-teal text-xl mr-3 mt-1">
-                                    <i class="fas fa-code"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-medium text-django-green">Showcase Projects</h4>
-                                    <p class="text-gray-600 text-sm">Show off what you've built with Django.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md:w-1/2 bg-gray-100 p-6">
-                        <h3 class="text-xl font-semibold text-django-green mb-4">Community Discussion</h3>
-                        <p class="text-gray-700 mb-4">Join our community discussions on Discord, GitHub, or at our next
-                            meetup event.</p>
-
-                        <div class="border rounded-lg p-4 bg-white">
-                            <h4 class="font-medium text-django-green mb-2">Connect with us:</h4>
-                            <div class="flex space-x-4 justify-center">
-                                <a href="https://discord.gg/QwpARXXD" class="text-2xl text-django-teal hover:text-django-green transition">
-                                    <i class="fab fa-discord"></i>
-                                </a>
+                                <h4 class="font-semibold text-django-green text-lg mb-1">Showcase Projects</h4>
+                                <p class="text-gray-600 text-base leading-relaxed">Show off what you've built with Django.</p>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="md:w-1/2 bg-gray-100 p-10 flex flex-col justify-center">
+                    <h3 class="text-2xl md:text-3xl font-bold text-django-green mb-6">
+                        Community Discussion
+                    </h3>
+                    <p class="text-gray-700 mb-8 text-lg leading-relaxed">
+                        Join our community discussions on Discord, GitHub, or at our next meetup event.
+                    </p>
+
+                    <div class="border rounded-xl p-6 bg-white shadow-md text-center">
+                        <h4 class="font-semibold text-django-green text-lg mb-4">Connect with us:</h4>
+                        <div class="flex justify-center space-x-6 text-3xl">
+                            <a href="https://discord.gg/QwpARXXD" class="text-django-teal hover:text-django-green transition transform hover:scale-110">
+                                <i class="fab fa-discord"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-    {% endblock content %}
+    </div>
+</section>
+{% endblock content %}
