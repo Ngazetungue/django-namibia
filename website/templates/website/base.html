@@ -37,17 +37,14 @@
     </head>
 
 <body x-data="{ mobileMenuOpen: false }" x-init="AOS.init();" class="font-sans bg-gray-50">
-
     <!-- HEADER / NAVIGATION -->
     <header class="sticky top-0 z-50 bg-white shadow-md">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Logo -->
             <a href="{% url 'website:home' %}" class="flex items-center space-x-5 group">
                 <img src="{% static 'website/images/logo/django-nami.png' %}" 
                      alt="Django Namibia Logo" 
                      class="w-36 h-20 object-contain transition-transform group-hover:scale-105">
             </a>
-
             <!-- Desktop Nav -->
             <nav class="hidden md:flex space-x-10 text-lg font-medium text-django-green">
                 <a href="{% url 'website:home' %}" class="hover:text-django-teal transition">Home</a>
@@ -55,7 +52,6 @@
                 <a href="{% url 'website:coc' %}" class="hover:text-django-teal transition">COC</a>
                 <a href="{% url 'website:resources' %}" class="hover:text-django-teal transition">Resources</a>
             </nav>
-
             <!-- Mobile Menu Button -->
             <button @click="mobileMenuOpen = !mobileMenuOpen" 
                     class="md:hidden text-django-green p-2 rounded-md hover:bg-gray-100 transition">
@@ -65,7 +61,6 @@
                 </svg>
             </button>
         </div>
-
         <!-- Mobile Navigation -->
         <div x-show="mobileMenuOpen" 
              @click.away="mobileMenuOpen = false" 
@@ -79,29 +74,20 @@
             </div>
         </div>
     </header>
-
-    <!-- MAIN CONTENT -->
     <main class="mt-0">
         {% block content %}{% endblock content %}
     </main>
-
-<!-- FOOTER -->
 <footer class="bg-django-green text-white py-12">
     <div class="container mx-auto px-6 grid md:grid-cols-5 gap-8">
-      <!-- Community Section -->
       <div>
         <h3 class="text-xl font-bold mb-4 flex items-center space-x-3">
-          <img src="{% static 'website/images/logo/django-namibia.png' %}"
-               alt="Django Namibia Logo"
-               class="w-10 h-10 rounded-full object-cover">
           <span>Django Namibia</span>
         </h3>
         <p class="text-gray-200 leading-relaxed">
           Official community for Django developers in Namibia. Learn, share, and grow!
         </p>
       </div>
-  
-      <!-- Quick Links -->
+
       <div>
         <h4 class="font-semibold mb-4">Quick Links</h4>
         <ul class="space-y-2">
@@ -111,8 +97,6 @@
           <li><a href="{% url 'website:resources' %}" class="hover:text-django-teal transition">Resources</a></li>
         </ul>
       </div>
-  
-      <!-- Django Resources -->
       <div>
         <h4 class="font-semibold mb-4">Django Resources</h4>
         <ul class="space-y-2">
@@ -122,8 +106,7 @@
           <li><a href="https://forum.djangoproject.com" target="_blank" class="hover:text-django-teal transition">Django Forum</a></li>
         </ul>
       </div>
-  
-      <!-- Community Links -->
+
       <div>
         <h4 class="font-semibold mb-4">Our Community</h4>
         <ul class="space-y-2">
@@ -131,8 +114,6 @@
           <li><a href="https://na.pycon.org/" target="_blank" class="hover:text-django-teal transition">PyCon Namibia</a></li>
         </ul>
       </div>
-  
-      <!-- Social Media -->
       <div>
         <h4 class="font-semibold mb-4">Connect With Us</h4>
         <div class="flex space-x-4 text-xl">
@@ -154,14 +135,12 @@
       </p>
     </div>
   </footer>
-  
-    <!-- BACK TO TOP BUTTON -->
+
     <div class="fixed bottom-6 right-6 z-50">
         <a href="#" class="bg-django-teal text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-teal-700 transition">
             <i class="fas fa-arrow-up"></i>
         </a>
     </div>
-
     {% block extra_scripts %}{% endblock %}
 </body>
 </html>
